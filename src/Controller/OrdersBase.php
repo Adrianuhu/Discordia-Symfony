@@ -1,35 +1,26 @@
 <?php
-namespace App\Controller;
 // src/Controller/OrdersBase.php
+namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
+
 use App\Entity\Restaurants;
 use App\Entity\Categories;
 use App\Entity\Orderproducts;
 use App\Entity\Orders;
 use App\Entity\Products;
 
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-/*
- * @Security("is_granted('ROLE_USER')")
- */
 class OrdersBase extends AbstractController{
 
-    /**
-     * @Route("/hello", name="hello")
-     */
-    public function home(){
-        return new Response('<html><body>Hello</body></html>');
-    }
-
-    /**
+     /**
      * @Route("/categories", name="categories")
      */
     public function categories() {       
