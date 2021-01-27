@@ -1,0 +1,19 @@
+Exercises:
+E1. Write a controller that receives two numbers and shows the remainder of the
+division between the first and the second. The second parameter is optional, 
+with a default value of 2.
+E2. Write a controller that that shows a table with the data of all the players.
+E3. Write a controller that that receives the code of a team
+and shows a table with the data of all the players.
+E4. Write a form to insert a new player.
+E5. Write a form to send an email.
+E6. Write a controller that that shows a list with links
+to the previous controllers.
+Activities:
+A1. Create a project for testing this topic exercises.
+A2. Write a controller that receives a number and calculates and shows its factorial.
+A3. Write a controller similar to the previous one, but using a template. The template
+has to receive two parameters: one for the result, one indicating if there is an error.
+If there is an error, it shows an appropiate message instead of the result.
+A5. Write a controller to send a mail that receives (at least), the text and the 
+destination address.

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Table</title>        
+    </head>
+    <body>
+        <table> 
+			<tr><th>Code</th><th>Name</th></tr>
+			{%for row in rows %}
+				<tr><td>{{ row.code }}</td><td>{{ row.name }}</td></tr>
+			{% endfor %}
+		</table>
+    </body>
+</html>
