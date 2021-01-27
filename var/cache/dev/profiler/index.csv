@@ -30,3 +30,7 @@ e07e29,::1,GET,http://localhost:8000/login,1611773752,,200
 beefd6,::1,POST,http://localhost:8000/login,1611773758,,302
 d440d9,::1,GET,http://localhost:8000/showTeam,1611773759,,200
 e96e32,::1,GET,http://localhost:8000/login,1611773765,,200
+08ce3e,::1,GET,http://localhost:8000/hellocategories,1611775077,a9b17f,404
+a9b17f,::1,GET,http://localhost:8000/hellocategories,1611775077,,404
+552451,::1,GET,http://localhost:8000/categories,1611775083,f10ff4,404
+f10ff4,::1,GET,http://localhost:8000/categories,1611775083,,404
