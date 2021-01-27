@@ -1,0 +1,22 @@
+{# templates/cart.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}Shopping cart{% endblock %}
+{% block content %}    
+		{% if products is empty %}
+			<p> The cart is empty </p>
+		{% else %}
+			<table>
+			<tr><th>Name</th><th>Description</th><th>Stock</th><th>Weight</th><th>Units</th><th>Remove</th></tr>
+				{% for  prod in products %}
+					<tr><td>{{ prod.name }}</td><td>{{ prod.description }}</td><td>{{ prod.stock }}</td><td>{{ prod.weight }}</td><td>{{  prod.units  }}</td>
+						<td><form action = {{path('remove')}} method = 'POST'>
+					<input name = 'units' type='number' min = '1' value = '1'>
+					<input type = 'submit' value='remove'><input name = 'cod' type='hidden' value = {{prod.codProd}}>
+					</form></td>
+					</tr>			
+				{% endfor %}
+			</table>
+			 <a href = {{ path('processOrder') }}>Checkout</a>
+		{% endif %}    
+	
+{% endblock %}

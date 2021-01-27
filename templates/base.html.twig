@@ -1,12 +1,20 @@
+{# templates/base.html.twig #}
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Order application{% endblock %}</title>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+		{% block body %}
+        <header>
+			{% block header %}
+				{{ include('header.html.twig') }} 
+				<hr>
+			{%endblock %}
+        </header>
+		{% block content%}
+		{% endblock%}        
+        {% endblock %}
     </body>
 </html>
