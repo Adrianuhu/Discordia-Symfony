@@ -21,6 +21,14 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
  * @Security("is_granted('ROLE_USER')")
  */
 class OrdersBase extends AbstractController{
+
+    /**
+     * @Route("/hello", name="hello")
+     */
+    public function home(){
+        return new Response('<html><body>Hello</body></html>');
+    }
+
     /**
      * @Route("/categories", name="categories")
      */

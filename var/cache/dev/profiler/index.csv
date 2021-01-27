@@ -105,3 +105,8 @@ cc0ce0,127.0.0.1,GET,http://localhost:8000/categories,1611776775,4c5f69,404
 0bdbb4,127.0.0.1,GET,http://localhost:8000/categories,1611776812,,404
 9f960a,127.0.0.1,GET,http://localhost:8000/categories,1611776825,6f45f2,404
 6f45f2,127.0.0.1,GET,http://localhost:8000/categories,1611776825,,404
+abef26,127.0.0.1,GET,http://localhost:8000/hello,1611776874,,200
+9a0bc5,::1,GET,http://localhost:8000/hello,1611776941,6e1355,500
+6e1355,::1,GET,http://localhost:8000/hello,1611776941,,500
+7c321f,::1,GET,http://localhost:8000/hello,1611776951,a0a8d3,500
+a0a8d3,::1,GET,http://localhost:8000/hello,1611776951,,500
