@@ -52,3 +52,17 @@ ad104c,::1,GET,http://localhost:8000/categories,1611775236,,404
 be6869,::1,GET,http://localhost:8000/categories,1611775268,,404
 5a60f8,::1,GET,http://localhost:8000/categories,1611775302,5c37d4,404
 5c37d4,::1,GET,http://localhost:8000/categories,1611775302,,404
+b49221,::1,GET,http://localhost:8000/categories,1611775604,e48a4a,404
+e48a4a,::1,GET,http://localhost:8000/categories,1611775604,,404
+ef60f9,::1,GET,http://localhost:8000/categories,1611775611,b129d2,404
+b129d2,::1,GET,http://localhost:8000/categories,1611775611,,404
+8dee08,::1,GET,http://localhost:8000/categories,1611775634,29f2b5,404
+29f2b5,::1,GET,http://localhost:8000/categories,1611775634,,404
+47b499,::1,GET,http://localhost:8000/categories,1611775659,b56325,404
+b56325,::1,GET,http://localhost:8000/categories,1611775659,,404
+3a0b8b,::1,GET,http://localhost:8000/categories,1611775663,aa6a7e,404
+aa6a7e,::1,GET,http://localhost:8000/categories,1611775663,,404
+43760b,::1,GET,http://localhost:8000/products,1611775700,85cdb3,404
+85cdb3,::1,GET,http://localhost:8000/products,1611775700,,404
+caceef,::1,GET,http://localhost:8000/categories,1611775730,265bb1,404
+265bb1,::1,GET,http://localhost:8000/categories,1611775730,,404
