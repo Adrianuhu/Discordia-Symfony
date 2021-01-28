@@ -177,3 +177,14 @@ a09ec5,::1,GET,http://localhost:8000/categories,1611784608,,200
 48e3cd,::1,GET,http://localhost:8000/categories,1611784641,,200
 c75786,::1,GET,http://localhost:8000/categories,1611784656,,200
 7d6f03,::1,GET,http://localhost:8000/products/1,1611784658,,200
+c78ac3,::1,GET,http://localhost:8000/hello,1611795056,745baf,404
+745baf,::1,GET,http://localhost:8000/hello,1611795056,,404
+93e4e7,::1,GET,http://localhost:8000/categories,1611795072,,200
+70cda0,::1,GET,http://localhost:8000/favicon.ico,1611795079,d13e1e,404
+d13e1e,::1,GET,http://localhost:8000/favicon.ico,1611795079,,404
+d07a10,::1,GET,http://localhost:8000/products/1,1611795093,,200
+92c322,::1,GET,http://localhost:8000/categories,1611795101,,200
+4136a9,::1,GET,http://localhost:8000/categories,1611795121,,200
+0fee52,::1,GET,http://localhost:8000/products/1,1611795125,,200
+1d7f09,::1,POST,http://localhost:8000/add,1611795129,,302
+56f189,::1,GET,http://localhost:8000/cart,1611795130,,200
