@@ -23,6 +23,7 @@ a:active {
 
 .logout {
     position: absolute;
+    width: 100px;
     top: 0px;
     right: 0px;
     background-color: red;

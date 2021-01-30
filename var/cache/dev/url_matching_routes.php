@@ -15,22 +15,8 @@ return [
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\Example1::index'], null, null, null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\Example1::main'], null, null, null, false, false, null]],
-        '/base/hello' => [[['_route' => 'app_examplebaseroute_hello', '_controller' => 'App\\Controller\\ExampleBaseRoute::hello'], null, null, null, false, false, null]],
-        '/showTeam' => [[['_route' => 'app_exampledatabase_showteam', '_controller' => 'App\\Controller\\ExampleDataBase::showTeam'], null, null, null, false, false, null]],
-        '/teamPlayers/{$id}' => [[['_route' => 'app_exampledatabase_teamplayers', '_controller' => 'App\\Controller\\ExampleDataBase::teamPlayers'], null, null, null, false, false, null]],
-        '/formHello' => [[['_route' => 'formHello', '_controller' => 'App\\Controller\\ExampleForms::formHello'], null, null, null, false, false, null]],
-        '/newTeam' => [[['_route' => 'newTeam', '_controller' => 'App\\Controller\\ExampleForms::newTeam'], null, null, null, false, false, null]],
-        '/sendEmail' => [[['_route' => 'sendEmail', '_controller' => 'App\\Controller\\ExampleForms::sendEmail'], null, null, null, false, false, null]],
-        '/table' => [[['_route' => 'table', '_controller' => 'App\\Controller\\ExampleTemplates::table'], null, null, null, true, false, null]],
-        '/paths' => [[['_route' => 'paths', '_controller' => 'App\\Controller\\ExampleTemplates::paths'], null, null, null, true, false, null]],
-        '/includet' => [[['_route' => 'includet', '_controller' => 'App\\Controller\\ExampleTemplates::includet'], null, null, null, true, false, null]],
-        '/showCat' => [[['_route' => 'showCat', '_controller' => 'App\\Controller\\ExampleTemplates::showCat'], null, null, null, true, false, null]],
-        '/players' => [[['_route' => 'players', '_controller' => 'App\\Controller\\ExercisesCap8::players'], null, null, null, false, false, null]],
-        '/listlinks' => [[['_route' => 'listlinks', '_controller' => 'App\\Controller\\ExercisesCap8::listlinks'], null, null, null, false, false, null]],
-        '/email' => [[['_route' => 'app_mailer_sendemail', '_controller' => 'App\\Controller\\MailerController::sendEmail'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/testJSON' => [[['_route' => 'TestJSON', '_controller' => 'App\\Controller\\TJSON::testJSON'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
         0 => '{^(?'
@@ -49,24 +35,6 @@ return [
                         .'|(*:159)'
                     .')'
                 .')'
-                .'|/p(?'
-                    .'|roduct/([^/]++)/([^/]++)(*:198)'
-                    .'|ositive/([^/]++)(*:222)'
-                .')'
-                .'|/default1(?:/([^/]++))?(*:254)'
-                .'|/s(?'
-                    .'|howTeamNumber/([^/]++)(*:289)'
-                    .'|alutation/([^/]++)(*:315)'
-                .')'
-                .'|/remainder/([^/]++)(?:/([^/]++))?(*:357)'
-                .'|/factorial(?'
-                    .'|/([^/]++)(*:387)'
-                    .'|Template/([^/]++)(*:412)'
-                .')'
-                .'|/teamPlayers(?'
-                    .'|/([^/]++)(*:445)'
-                    .'|2/([^/]++)(*:463)'
-                .')'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -76,18 +44,8 @@ return [
         116 => [[['_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'], ['token'], null, null, false, false, null]],
         136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception_panel::body'], ['token'], null, null, false, false, null]],
         149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
-        159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-        198 => [[['_route' => 'product', '_controller' => 'App\\Controller\\Example1::product'], ['num1', 'num2'], null, null, false, true, null]],
-        222 => [[['_route' => 'positive', '_controller' => 'App\\Controller\\ExampleTemplates::positive'], ['num'], null, null, false, true, null]],
-        254 => [[['_route' => 'default1', 'num' => 3, '_controller' => 'App\\Controller\\Example1::default1'], ['num'], null, null, false, true, null]],
-        289 => [[['_route' => 'showTeamNumber', '_controller' => 'App\\Controller\\ExampleDataBase::showTeamNumber'], ['num'], null, null, false, true, null]],
-        315 => [[['_route' => 'salutation', '_controller' => 'App\\Controller\\ExampleTemplates::salutation'], ['name'], null, null, false, true, null]],
-        357 => [[['_route' => 'remainder', 'num2' => 2, '_controller' => 'App\\Controller\\ExercisesCap8::remainder'], ['num1', 'num2'], null, null, false, true, null]],
-        387 => [[['_route' => 'factorial', '_controller' => 'App\\Controller\\ExercisesCap8::factorial'], ['num'], null, null, false, true, null]],
-        412 => [[['_route' => 'factorialTemplate', '_controller' => 'App\\Controller\\ExercisesCap8::factorialTemplate'], ['num'], null, null, false, true, null]],
-        445 => [[['_route' => 'teamPlayers', '_controller' => 'App\\Controller\\ExercisesCap8::teamPlayers'], ['id'], null, null, false, true, null]],
-        463 => [
-            [['_route' => 'teamPlayers2', '_controller' => 'App\\Controller\\ExercisesCap8::teamPlayers2'], ['id'], null, null, false, true, null],
+        159 => [
+            [['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

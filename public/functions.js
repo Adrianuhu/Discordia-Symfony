@@ -1,3 +1,22 @@
+// load main page
+function load_Main() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.body.innerHTML = this.responseText;
+        }
+    };
+    // xhttp.open("GET", "main", true);
+    // xhttp.send();
+    // return false;
+    xhttp.open("POST", "main", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("user=" + 2 + "&password=" + 11223);
+    return false;
+}
+
+
 // create login form
 function loadLogin() {
 
@@ -32,19 +51,6 @@ function accessLogin() {
 }
 
 
-// load main page
-function load_Main() {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.body.innerHTML = this.responseText;
-        }
-    };
-    xhttp.open("GET", "main", true);
-    xhttp.send();
-    return false;
-}
 
 
 // load a specific chat

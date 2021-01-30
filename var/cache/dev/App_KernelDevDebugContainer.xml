@@ -312,60 +312,11 @@
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Example1"/>
       </call>
     </service>
-    <service id="App\Controller\ExampleBaseRoute" class="App\Controller\ExampleBaseRoute" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ExampleBaseRoute"/>
-      </call>
-    </service>
-    <service id="App\Controller\ExampleDataBase" class="App\Controller\ExampleDataBase" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ExampleDataBase"/>
-      </call>
-    </service>
-    <service id="App\Controller\ExampleForms" class="App\Controller\ExampleForms" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ExampleForms"/>
-      </call>
-    </service>
-    <service id="App\Controller\ExampleTemplates" class="App\Controller\ExampleTemplates" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ExampleTemplates"/>
-      </call>
-    </service>
-    <service id="App\Controller\ExercisesCap8" class="App\Controller\ExercisesCap8" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ExercisesCap8"/>
-      </call>
-    </service>
-    <service id="App\Controller\MailerController" class="App\Controller\MailerController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\MailerController"/>
-      </call>
-    </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SecurityController"/>
-      </call>
-    </service>
-    <service id="App\Controller\TJSON" class="App\Controller\TJSON" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\TJSON"/>
       </call>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
@@ -4712,30 +4663,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Example1" class="App\Controller\Example1" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Example1" class="App\Controller\Example1" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\Example1" class="App\Controller\Example1" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ExampleBaseRoute" class="App\Controller\ExampleBaseRoute" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ExampleBaseRoute" class="App\Controller\ExampleBaseRoute" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ExampleBaseRoute" class="App\Controller\ExampleBaseRoute" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ExampleDataBase" class="App\Controller\ExampleDataBase" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ExampleDataBase" class="App\Controller\ExampleDataBase" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ExampleDataBase" class="App\Controller\ExampleDataBase" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ExampleForms" class="App\Controller\ExampleForms" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ExampleForms" class="App\Controller\ExampleForms" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ExampleForms" class="App\Controller\ExampleForms" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ExampleTemplates" class="App\Controller\ExampleTemplates" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ExampleTemplates" class="App\Controller\ExampleTemplates" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ExampleTemplates" class="App\Controller\ExampleTemplates" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ExercisesCap8" class="App\Controller\ExercisesCap8" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ExercisesCap8" class="App\Controller\ExercisesCap8" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\ExercisesCap8" class="App\Controller\ExercisesCap8" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MailerController" class="App\Controller\MailerController" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MailerController" class="App\Controller\MailerController" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\MailerController" class="App\Controller\MailerController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\TJSON" class="App\Controller\TJSON" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\TJSON" class="App\Controller\TJSON" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\TJSON" class="App\Controller\TJSON" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4919,26 +4849,16 @@
         <argument>make:migration</argument>
       </call>
     </service>
-    <service id=".service_locator.BWknic2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="mailer" type="service" id="mailer.mailer"/>
-      </argument>
-    </service>
     <service id=".service_locator.q6jLs_L" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.TayhqSI" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.LeCihjq" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\ExampleForms::sendEmail" type="service" id=".service_locator.BWknic2"/>
-        <argument key="App\Controller\MailerController::sendEmail" type="service" id=".service_locator.BWknic2"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.q6jLs_L"/>
-        <argument key="App\Controller\ExampleForms:sendEmail" type="service" id=".service_locator.BWknic2"/>
-        <argument key="App\Controller\MailerController:sendEmail" type="service" id=".service_locator.BWknic2"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.q6jLs_L"/>
       </argument>
     </service>
@@ -5227,51 +5147,9 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ExampleBaseRoute" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ExampleBaseRoute"/>
-      <argument>App\Controller\ExampleBaseRoute</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ExampleDataBase" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ExampleDataBase"/>
-      <argument>App\Controller\ExampleDataBase</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ExampleForms" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ExampleForms"/>
-      <argument>App\Controller\ExampleForms</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ExampleTemplates" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ExampleTemplates"/>
-      <argument>App\Controller\ExampleTemplates</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\ExercisesCap8" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\ExercisesCap8"/>
-      <argument>App\Controller\ExercisesCap8</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\MailerController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\MailerController"/>
-      <argument>App\Controller\MailerController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
     <service id=".service_locator.pNNo5z3.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\TJSON" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\TJSON"/>
-      <argument>App\Controller\TJSON</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -5414,12 +5292,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.TayhqSI"/>
+      <argument type="service" id=".service_locator.LeCihjq"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.TayhqSI"/>
+      <argument type="service" id=".service_locator.LeCihjq"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5789,7 +5667,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.TayhqSI"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.LeCihjq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

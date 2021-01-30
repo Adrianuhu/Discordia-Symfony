@@ -42,14 +42,14 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
         // line 1
         echo "
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA</a></p>
-\t\t
-\t\t
+\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA ";
+        // line 3
+        echo twig_escape_filter($this->env, (isset($context["var"]) || array_key_exists("var", $context) ? $context["var"] : (function () { throw new RuntimeError('Variable "var" does not exist.', 3, $this->source); })()), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, (isset($context["se"]) || array_key_exists("se", $context) ? $context["se"] : (function () { throw new RuntimeError('Variable "se" does not exist.', 3, $this->source); })()), "html", null, true);
+        echo "</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
-
-
-
         <div class=\"leftSide\">
 
             <div class=\"buttons\">
@@ -60,36 +60,42 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
             <div class=\"menu\">
                 <button class=\"tab\" onclick=\"showContacts()\">Messages</button>
                 
-                <?php 
-                    if (\$_SESSION['user']['rol'] == 0) {
-                        echo '<button class=\"tab\" onclick=\"showFriends()\">Friends</button>';
-                    }else {
-                        echo '<button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>';
-                    }
-                ?>
-
+                ";
+        // line 16
+        if ((isset($context["rol"]) || array_key_exists("rol", $context) ? $context["rol"] : (function () { throw new RuntimeError('Variable "rol" does not exist.', 16, $this->source); })())) {
+            // line 17
+            echo "                <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
+                ";
+        } else {
+            // line 19
+            echo "                <button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>
+                ";
+        }
+        // line 21
+        echo "                
             </div>
             </div>
 
 <div class=\"contacts\" id=\"contacts\">
-
 
 </div>
 
 
 <div class=\"userPerSpa\">
     <div class=\"photo\">
-        
-    <?php 
-        \$resul = load_name_user(\$_SESSION['user']['cod_user']);
-     
-        echo '
-        <img src=\"images/avatar/'.\$resul['photo'].'\" class=\"profPict\" alt=\"\">
+          
+
+        <img src=\"images/avatar/";
+        // line 34
+        echo twig_escape_filter($this->env, (isset($context["nameUser"]) || array_key_exists("nameUser", $context) ? $context["nameUser"] : (function () { throw new RuntimeError('Variable "nameUser" does not exist.', 34, $this->source); })()), "html", null, true);
+        echo ".jpg\" class=\"profPict\" alt=\"\">
             </div>
 
             <div class=\"data\">
-        <div class=\"usrName\">'.\$resul['nick'].'</div>';
-    ?>
+        <div class=\"usrName\">";
+        // line 38
+        echo twig_escape_filter($this->env, (isset($context["nameUser"]) || array_key_exists("nameUser", $context) ? $context["nameUser"] : (function () { throw new RuntimeError('Variable "nameUser" does not exist.', 38, $this->source); })()), "html", null, true);
+        echo "</div>
     
 \t\t<button class=\"usrSpaBtn\" onclick=\"showSBF()\">
 \t\t\tAdd friend
@@ -107,13 +113,9 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
 
 
 </div>
-
 </div>
 
-        
 <div class=\"chat\" id=\"chat1\">
-
-
 </div>
 </div>
 ";
@@ -130,23 +132,23 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
         return "main.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  97 => 38,  90 => 34,  75 => 21,  71 => 19,  67 => 17,  65 => 16,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA</a></p>
-\t\t
-\t\t
+\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA {{var}} {{se}}</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
-
-
-
         <div class=\"leftSide\">
 
             <div class=\"buttons\">
@@ -157,36 +159,29 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
             <div class=\"menu\">
                 <button class=\"tab\" onclick=\"showContacts()\">Messages</button>
                 
-                <?php 
-                    if (\$_SESSION['user']['rol'] == 0) {
-                        echo '<button class=\"tab\" onclick=\"showFriends()\">Friends</button>';
-                    }else {
-                        echo '<button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>';
-                    }
-                ?>
-
+                {% if rol%}
+                <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
+                {% else %}
+                <button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>
+                {%endif%}
+                
             </div>
             </div>
 
 <div class=\"contacts\" id=\"contacts\">
-
 
 </div>
 
 
 <div class=\"userPerSpa\">
     <div class=\"photo\">
-        
-    <?php 
-        \$resul = load_name_user(\$_SESSION['user']['cod_user']);
-     
-        echo '
-        <img src=\"images/avatar/'.\$resul['photo'].'\" class=\"profPict\" alt=\"\">
+          
+
+        <img src=\"images/avatar/{{nameUser}}.jpg\" class=\"profPict\" alt=\"\">
             </div>
 
             <div class=\"data\">
-        <div class=\"usrName\">'.\$resul['nick'].'</div>';
-    ?>
+        <div class=\"usrName\">{{nameUser}}</div>
     
 \t\t<button class=\"usrSpaBtn\" onclick=\"showSBF()\">
 \t\t\tAdd friend
@@ -204,13 +199,9 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
 
 
 </div>
-
 </div>
 
-        
 <div class=\"chat\" id=\"chat1\">
-
-
 </div>
 </div>
 ", "main.html.twig", "C:\\Users\\adria\\Discordia-Symfony\\templates\\main.html.twig");

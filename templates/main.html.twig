@@ -1,8 +1,8 @@
 
 <div class="pantalla">
-		<p id="nameMail"><a href="main.php">DISCORDIA</a></p>
+		<p id="nameMail"><a href="main.php">DISCORDIA {{var}} {{se}}</a></p>
 			<button onclick="logOut()" class="logout">Log out</button>
-
+		
         <div class="leftSide">
 
             <div class="buttons">
@@ -13,14 +13,12 @@
             <div class="menu">
                 <button class="tab" onclick="showContacts()">Messages</button>
                 
-                <?php 
-                    if ($_SESSION['user']['rol'] == 0) {
-                        echo '<button class="tab" onclick="showFriends()">Friends</button>';
-                    }else {
-                        echo '<button class="tab" onclick="showAllUsers()">All Users</button>';
-                    }
-                ?>
-
+                {% if rol%}
+                <button class="tab" onclick="showFriends()">Friends</button>
+                {% else %}
+                <button class="tab" onclick="showAllUsers()">All Users</button>
+                {%endif%}
+                
             </div>
             </div>
 
@@ -31,17 +29,13 @@
 
 <div class="userPerSpa">
     <div class="photo">
-        
-    <?php 
-        $resul = load_name_user($_SESSION['user']['cod_user']);
-     
-        echo '
-        <img src="images/avatar/'.$resul['photo'].'" class="profPict" alt="">
+          
+
+        <img src="images/avatar/{{nameUser}}.jpg" class="profPict" alt="">
             </div>
 
             <div class="data">
-        <div class="usrName">'.$resul['nick'].'</div>';
-    ?>
+        <div class="usrName">{{nameUser}}</div>
     
 		<button class="usrSpaBtn" onclick="showSBF()">
 			Add friend
