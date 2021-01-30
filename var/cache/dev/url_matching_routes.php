@@ -13,10 +13,8 @@ return [
         '/_profiler/search_bar' => [[['_route' => '_profiler_search_bar', '_controller' => 'web_profiler.controller.profiler::searchBarAction'], null, null, null, false, false, null]],
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
-        '/hello' => [[['_route' => 'hello', '_controller' => 'App\\Controller\\Example1::home'], null, null, null, false, false, null]],
-        '/testRequest' => [[['_route' => 'testRequest', '_controller' => 'App\\Controller\\Example1::testRequest'], null, null, null, false, false, null]],
-        '/session1' => [[['_route' => 'session1', '_controller' => 'App\\Controller\\Example1::session1'], null, null, null, false, false, null]],
-        '/session2' => [[['_route' => 'session2', '_controller' => 'App\\Controller\\Example1::session2'], null, null, null, false, false, null]],
+        '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\Example1::index'], null, null, null, false, false, null]],
+        '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\Example1::main'], null, null, null, false, false, null]],
         '/base/hello' => [[['_route' => 'app_examplebaseroute_hello', '_controller' => 'App\\Controller\\ExampleBaseRoute::hello'], null, null, null, false, false, null]],
         '/showTeam' => [[['_route' => 'app_exampledatabase_showteam', '_controller' => 'App\\Controller\\ExampleDataBase::showTeam'], null, null, null, false, false, null]],
         '/teamPlayers/{$id}' => [[['_route' => 'app_exampledatabase_teamplayers', '_controller' => 'App\\Controller\\ExampleDataBase::teamPlayers'], null, null, null, false, false, null]],
@@ -55,23 +53,19 @@ return [
                     .'|roduct/([^/]++)/([^/]++)(*:198)'
                     .'|ositive/([^/]++)(*:222)'
                 .')'
-                .'|/default(?'
-                    .'|1(?:/([^/]++))?(*:257)'
-                    .'|2(?:/([^/]++))?(*:280)'
-                .')'
+                .'|/default1(?:/([^/]++))?(*:254)'
                 .'|/s(?'
-                    .'|quare/([^/]++)(*:308)'
-                    .'|howTeamNumber/([^/]++)(*:338)'
-                    .'|alutation/([^/]++)(*:364)'
+                    .'|howTeamNumber/([^/]++)(*:289)'
+                    .'|alutation/([^/]++)(*:315)'
                 .')'
-                .'|/remainder/([^/]++)(?:/([^/]++))?(*:406)'
+                .'|/remainder/([^/]++)(?:/([^/]++))?(*:357)'
                 .'|/factorial(?'
-                    .'|/([^/]++)(*:436)'
-                    .'|Template/([^/]++)(*:461)'
+                    .'|/([^/]++)(*:387)'
+                    .'|Template/([^/]++)(*:412)'
                 .')'
                 .'|/teamPlayers(?'
-                    .'|/([^/]++)(*:494)'
-                    .'|2/([^/]++)(*:512)'
+                    .'|/([^/]++)(*:445)'
+                    .'|2/([^/]++)(*:463)'
                 .')'
             .')/?$}sDu',
     ],
@@ -85,16 +79,14 @@ return [
         159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         198 => [[['_route' => 'product', '_controller' => 'App\\Controller\\Example1::product'], ['num1', 'num2'], null, null, false, true, null]],
         222 => [[['_route' => 'positive', '_controller' => 'App\\Controller\\ExampleTemplates::positive'], ['num'], null, null, false, true, null]],
-        257 => [[['_route' => 'default1', 'num' => 3, '_controller' => 'App\\Controller\\Example1::default1'], ['num'], null, null, false, true, null]],
-        280 => [[['_route' => 'default2', 'num' => '4', '_controller' => 'App\\Controller\\Example1::default2'], ['num'], null, null, false, true, null]],
-        308 => [[['_route' => 'square', '_controller' => 'App\\Controller\\Example1::square'], ['num'], null, null, false, true, null]],
-        338 => [[['_route' => 'showTeamNumber', '_controller' => 'App\\Controller\\ExampleDataBase::showTeamNumber'], ['num'], null, null, false, true, null]],
-        364 => [[['_route' => 'salutation', '_controller' => 'App\\Controller\\ExampleTemplates::salutation'], ['name'], null, null, false, true, null]],
-        406 => [[['_route' => 'remainder', 'num2' => 2, '_controller' => 'App\\Controller\\ExercisesCap8::remainder'], ['num1', 'num2'], null, null, false, true, null]],
-        436 => [[['_route' => 'factorial', '_controller' => 'App\\Controller\\ExercisesCap8::factorial'], ['num'], null, null, false, true, null]],
-        461 => [[['_route' => 'factorialTemplate', '_controller' => 'App\\Controller\\ExercisesCap8::factorialTemplate'], ['num'], null, null, false, true, null]],
-        494 => [[['_route' => 'teamPlayers', '_controller' => 'App\\Controller\\ExercisesCap8::teamPlayers'], ['id'], null, null, false, true, null]],
-        512 => [
+        254 => [[['_route' => 'default1', 'num' => 3, '_controller' => 'App\\Controller\\Example1::default1'], ['num'], null, null, false, true, null]],
+        289 => [[['_route' => 'showTeamNumber', '_controller' => 'App\\Controller\\ExampleDataBase::showTeamNumber'], ['num'], null, null, false, true, null]],
+        315 => [[['_route' => 'salutation', '_controller' => 'App\\Controller\\ExampleTemplates::salutation'], ['name'], null, null, false, true, null]],
+        357 => [[['_route' => 'remainder', 'num2' => 2, '_controller' => 'App\\Controller\\ExercisesCap8::remainder'], ['num1', 'num2'], null, null, false, true, null]],
+        387 => [[['_route' => 'factorial', '_controller' => 'App\\Controller\\ExercisesCap8::factorial'], ['num'], null, null, false, true, null]],
+        412 => [[['_route' => 'factorialTemplate', '_controller' => 'App\\Controller\\ExercisesCap8::factorialTemplate'], ['num'], null, null, false, true, null]],
+        445 => [[['_route' => 'teamPlayers', '_controller' => 'App\\Controller\\ExercisesCap8::teamPlayers'], ['id'], null, null, false, true, null]],
+        463 => [
             [['_route' => 'teamPlayers2', '_controller' => 'App\\Controller\\ExercisesCap8::teamPlayers2'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],

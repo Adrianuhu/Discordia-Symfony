@@ -10,10 +10,18 @@ use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 class Example1 extends AbstractController{
     /**
-     * @Route("/hello", name="hello")
+     * @Route("/index", name="index")
      */
-    public function home(){
-        return new Response('<html><body>Hello</body></html>');
+    public function index(){
+		
+		return $this->render('index.html.twig');
+    }
+    /**
+     * @Route("/main", name="main")
+     */
+    public function main(){
+		
+		return $this->render('main.html.twig');
     }
 	/**
      * @Route("/product/{num1}/{num2}", name="product")
@@ -27,44 +35,6 @@ class Example1 extends AbstractController{
      */
 	public function default1($num = 3){		
 		return new Response("<html><body> " . $num . "</body></html>");
-	}
-	/**
-     * @Route("/default2/{num?4}", name="default2")
-     */
-	public function default2($num){		
-		return new Response("<html><body> " . $num . "</body></html>");
-	}
-	
-	
-	/**
-     * @Route("/square/{num}", name="square")
-     */
-	public function square($num){
-		return $this->redirectToRoute('product', array('num1' => $num, 'num2' => $num));
-	}
-	/**
-	* @Route("/testRequest", name = "testRequest")
-	*/
-	public function testRequest(Request $request){
-		$ip = $request->getClientIp();
-		return new Response(
-            '<html><body>IP: '.$ip.'</body></html>'
-        );
-	}
-	/**
-	* @Route("/session1", name = "session1")
-	*/
-	public function session1(SessionInterface $session){
-		$session->set("variable", 100);
-		return $this->redirectToRoute('session2');
-	}
-	/**
-	* @Route("/session2", name = "session2")
-	*/
-	public function session2(SessionInterface $session){
-		$var = $session->get("variable");
-		return new Response('<html><body>'.$var.'</body></html>'
-        );
 	}
 	
 	
