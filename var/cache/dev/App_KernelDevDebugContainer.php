@@ -16,6 +16,6 @@ if (!\class_exists(App_KernelDevDebugContainer::class, false)) {
 
 return new \ContainerTKPNGlC\App_KernelDevDebugContainer([
     'container.build_hash' => 'TKPNGlC',
-    'container.build_id' => 'ddfd93d3',
-    'container.build_time' => 1612037292,
+    'container.build_id' => 'd213838d',
+    'container.build_time' => 1612040860,
 ], __DIR__.\DIRECTORY_SEPARATOR.'ContainerTKPNGlC');

@@ -31,7 +31,21 @@ class Example1 extends AbstractController{
 		$nameUser = load_name_user("26")['name'];
 
 		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser, 'var' => $var,'se' => $se) );
-    }
+	}
+
+    /**
+     * @Route("/friend", name="friend")
+     */
+    public function friend(){
+		$_SESSION['user']['cod_user']= "30";
+	
+			$friends = load_friends($_SESSION['user']['cod_user'])->fetchAll();;
+			$friendReq = checkAcceptDeny($_SESSION['user']['cod_user']);
+			
+			return $this->render('friend.html.twig', array('friends'=> $friends, 'friendReq' => $friendReq) );
+
+		}
+	
 }
 
 
@@ -77,7 +91,7 @@ function load_name_user($coduser){
 // check the nick and password from a user
 function check_user($nick, $password){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select cod_user, rol from user where (nick = '$nick' or mail ='$nick')";
 	
 	
@@ -235,7 +249,7 @@ function load_room($cod){
 // load a list with the user's friends
 function load_friends($myUser){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select nick, photo, cod_user, status from
     (select if(userA not like '$myUser', userA, userB) as otherUser, sum(status) as status from friend as f
     where userA like '$myUser' or userB like '$myUser'
@@ -463,7 +477,7 @@ function denyFriend($myUser, $otherUser){
 function checkAcceptDeny($myUser){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select nick, photo, cod_user, status from
     (select if(userA not like '$myUser', userA, userB) as otherUser, (status) as status from friend as f
     where userA like '$myUser') as inter

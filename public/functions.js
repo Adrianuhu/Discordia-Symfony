@@ -216,7 +216,7 @@ function showFriends() {
         }
     };
 
-    xhttp.open("POST", "pages/friend.php", true);
+    xhttp.open("POST", "friend", true);
     xhttp.send();
     return false;
 }
