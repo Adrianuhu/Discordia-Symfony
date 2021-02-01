@@ -188,3 +188,6 @@ d07a10,::1,GET,http://localhost:8000/products/1,1611795093,,200
 0fee52,::1,GET,http://localhost:8000/products/1,1611795125,,200
 1d7f09,::1,POST,http://localhost:8000/add,1611795129,,302
 56f189,::1,GET,http://localhost:8000/cart,1611795130,,200
+9a7615,::1,GET,http://localhost:8000/categories,1611930198,,200
+ab87bb,::1,GET,http://localhost:8000/favicon.ico,1611930202,840a76,404
+840a76,::1,GET,http://localhost:8000/favicon.ico,1611930202,,404
