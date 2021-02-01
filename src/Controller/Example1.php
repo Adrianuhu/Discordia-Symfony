@@ -8,39 +8,43 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /*#
-	* @IsGranted("ROLE_USER")
-	*/
+* @IsGranted("ROLE_USER")
+*/
 
 class Example1 extends AbstractController{
-    /**
-     * @Route("/index", name="index")
+	/**
+	 * @Route("/index", name="index")
      */
-    public function index(){
+	public function index(SessionInterface $session){
+		
+		$session->set('codUser', '30');
+		
 		return $this->render('index.html.twig');
     }
     /**
-     * @Route("/main", name="main")
+	 * @Route("/main", name="main")
      */
-    public function main(Request $request){
-		$se = $_SESSION['ca'] = 1;
-		$var=$request->get("password");
+	public function main(Request $request, SessionInterface $session){
+		
+		$se = 1;
+		$var=$request->get("password"); //`POST METHOD
+		$cod  = $session->get('codUser');
    
-		//$rol = $_SESSION['user']['rol']; 
-		$nameUser = load_name_user("26")['name'];
+		$nameUser = load_name_user($cod)['name'];
 
-		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser, 'var' => $var,'se' => $se) );
+		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser) );
 	}
 
     /**
      * @Route("/friend", name="friend")
      */
-    public function friend(){
-		$_SESSION['user']['cod_user']= "30";
-	
-			$friends = load_friends($_SESSION['user']['cod_user'])->fetchAll();;
-			$friendReq = checkAcceptDeny($_SESSION['user']['cod_user']);
+    public function friend(SessionInterface $session){
+			$cod  = $session->get('codUser');
+			$friends = load_friends($cod)->fetchAll();;
+			$friendReq = checkAcceptDeny($cod);
 			
 			return $this->render('friend.html.twig', array('friends'=> $friends, 'friendReq' => $friendReq) );
 

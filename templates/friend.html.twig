@@ -1,46 +1,39 @@
 
           
+
+
+ {% if friends %}
+
                  {%for friend in friends %}
-				{{ friend.nick }}
-			{% endfor %}
+					
 
-
-{# 
-
- {% if rol%}
-                   {% else %}
-                 {%endif%}
-
-
- 
-
-
-if ($room === false) {
-				echo "<p class='error'>You have no friends </p>";
-			} else {
-                foreach ($room as $ro) {
-                    $picture = $ro["photo"];
-                    $name = $ro["nick"];
-                    $codUser = $ro["cod_user"];
+		{% if friend.status == 2 %}
                     
-                    if ($ro["status"] == 2) {
-                        echo '
+                  
+                       
 	
-					<div onclick="loadFriendProfile('.$codUser.')" class="person" method = "POST">
+					<div onclick="loadFriendProfile({{friend.cod_user}})" class="person" method = "POST">
 	
 			
-						<input name = "name_chat" type="hidden" value = '.$name.'>
-						<input name = "avatar_chat" type="hidden" value = "'.$picture.'">                        
+						<input name = "name_chat" type="hidden" value = '{{friend.nick}}'>
+						<input name = "avatar_chat" type="hidden" value = "{{friend.photo}}">                        
 						<button type="submit" class="person2">
-							<img class="profPict" src="images/avatar/'.$picture.'"alt="image_user">
-							<div class="friendName">'.$name.'</div>
+							<img class="profPict" src="images/avatar/{{friend.photo}}"alt="image_user">
+							<div class="friendName">{{friend.nick}}</div>
 						</button>
 	
 					</div>
-					';
-                    }
-                }
-            }
+					
+                    
+ {%endif%}
+                
+				{% endfor %}
+{% else %}
+
+<p class='error'>You have no friends </p>
+ {%endif%}
+{# 
+				   
 
             foreach($friendReq as $ro){	
 	
