@@ -33,7 +33,7 @@ class Example1 extends AbstractController{
 		$var=$request->get("password"); //POST METHOD
 		$cod  = $session->get('codUser');
 		
-		$nameUser = load_name_user($cod)['name'];
+		$nameUser = load_name_user($cod)['nick'];
 
 		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser) );
 	}
@@ -53,7 +53,7 @@ class Example1 extends AbstractController{
     /**
 	 * @Route("/chat_AJAX", name="chat_AJAX")
      */
-	public function chat_AJAX(SessionInterface $session){
+	public function chat_AJAX(Request $request, SessionInterface $session){
 		$codRoom=$request->get("codRoom"); //POST METHOD
 		$avatar_chat=$request->get("avatar_chat"); //POST METHOD
 		$name_chat=$request->get("name_chat"); //POST METHOD
@@ -64,7 +64,21 @@ class Example1 extends AbstractController{
 		setView($codRoom, $cod);
 
 			
-			return $this->render('chat_AJAX.html.twig', array('codRoom'=> $codRoom, 'avatar_chat' => $avatar_chat, 'name_chat' => $name_chat, 'room' => $room) );
+			return $this->render('chat_AJAX.html.twig', array('codRoom'=> $codRoom, 'avatar_chat' => $avatar_chat, 'name_chat' => $name_chat, 'room' => $room, 'cod' => $cod) );
+
+		}
+		
+	/**
+	 * @Route("/contacts", name="contacts")
+     */
+	public function contacts(SessionInterface $session){
+		$cod  = $session->get('codUser');
+
+		
+        $room = load_room($cod);
+
+			
+			return $this->render('contacts.html.twig', array('room' => $room) );
 
 		}
 		
@@ -143,7 +157,7 @@ function check_user($nick, $password){
 function register_user($name, $surname, $nick, $email, $password, $gender){
 	
         $res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-		$db = new PDO($res[0], $res[1], $res[2]);
+		$db = new \PDO($res[0], $res[1], $res[2]);
 
 		$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
@@ -166,7 +180,7 @@ function register_user($name, $surname, $nick, $email, $password, $gender){
 function send_Message($myUser, $toUser, $message){
 
 		$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 
 	$severalUser = explode(" ", $toUser);
 
@@ -215,7 +229,7 @@ function send_Message($myUser, $toUser, $message){
 // create a room  with 2 users
 function createTable ($userA, $userB){
     $res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	
 	$userFirst ="";
 	$userSecond ="";
@@ -240,7 +254,7 @@ function createTable ($userA, $userB){
 // load a list of active chats
 function load_room($cod){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select u.cod_user as codUser, nick, photo, count(*) as count, ur.cod_room as codRoom, img_room, max(date_message) as date_msg, typeOfRoom from user as u
 	join user_room as ur
 	on u.cod_user = ur.cod_user
@@ -294,7 +308,7 @@ function load_friends($myUser){
 // admin function to load all registered users 
 function load_allUser(){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select nick, photo, cod_user
     from user
     where rol not like '1'";
@@ -313,7 +327,7 @@ function load_allUser(){
 // load content from a specific chat
 function load_chat($cod){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select u.cod_user as codUser, nick, photo, cod_room as codRoom, text_message, date_message from user as u
     join message as m
     on u.cod_user = m.cod_user
@@ -335,7 +349,7 @@ function load_chat($cod){
 function send_chat_Message($myUser, $room, $message){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 
     $ins = "INSERT INTO `message` (`cod_message`, `cod_user`, `text_message`, `date_message`, `cod_room`) VALUES (NULL, '$myUser', '$message', current_timestamp(), '$room');";
     $result = $db->query($ins);
@@ -347,7 +361,7 @@ function send_chat_Message($myUser, $room, $message){
 function create_group($myUser, $toUserGroup, $name_group){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 
 	$severalUser = explode(" ", $toUserGroup);
 	
@@ -389,7 +403,7 @@ function create_group($myUser, $toUserGroup, $name_group){
 // function to check if a user has visited a chat with new messages
 function load_view($coduser, $codroom){
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "select * from user_room
 	where cod_user like '$coduser' and cod_room like '$codroom';";
 	
@@ -410,7 +424,7 @@ function load_view($coduser, $codroom){
 function setNotView($codRoom, $codUser)
 {
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	
 	$ins = "UPDATE user_room SET view='0' WHERE cod_room='$codRoom' and cod_user not like '$codUser' ";
 	
@@ -422,7 +436,7 @@ function setNotView($codRoom, $codUser)
 function setView($codRoom, $codUser)
 {
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 
 	$ins = "UPDATE user_room SET view='1' WHERE cod_room='$codRoom' and cod_user like '$codUser' ";
 	
@@ -435,7 +449,7 @@ function updateProf($name, $surname, $description, $photo){
 	$myUser = $_SESSION['user']['cod_user'];
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "UPDATE `user` SET `name`='$name',`surname`='$surname', `photo`='$photo', `description`='$description'
 	WHERE cod_user like'$myUser'"; 
 	
@@ -457,7 +471,7 @@ function acceptFriend($myUser, $otherUser){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 	
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "UPDATE `friend` SET `status`='1'
 	WHERE (userA like'$myUser' and userB like '$otherUser') or (userB like'$myUser' and userA like '$otherUser')"; 
 
@@ -479,7 +493,7 @@ function denyFriend($myUser, $otherUser){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 	
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 	$ins = "DELETE from `friend`
 	WHERE (userA like'$myUser' and userB like '$otherUser') or (userB like'$myUser' and userA like '$otherUser')"; 
 
@@ -522,7 +536,7 @@ function checkAcceptDeny($myUser){
 function sendFriendship($myUser, $NameOtherUser){
 
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new PDO($res[0], $res[1], $res[2]);
+	$db = new \PDO($res[0], $res[1], $res[2]);
 
 	$ins = "select cod_user from user
 	where nick like '$NameOtherUser'";

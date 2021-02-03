@@ -68,7 +68,7 @@ function showFriends() {
 
 
 
-// load a specific chat
+// load a specific chat DONE
 function loadChat(codRoom, avatar_chat, name_chat) {
 
     var xhttp = new XMLHttpRequest();
@@ -87,6 +87,20 @@ function loadChat(codRoom, avatar_chat, name_chat) {
     return false;
 }
 
+// show all chats actives
+function showContacts() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("contacts").innerHTML = this.responseText;
+        }
+    };
+
+    xhttp.open("POST", "contacts", true);
+    xhttp.send();
+    return false;
+}
 
 // send a text menssage in a select chat
 function sendMessage() {
@@ -203,24 +217,6 @@ function showSBF() {
     xhttp.send();
     return false;
 }
-
-
-// show all chats actives
-function showContacts() {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("contacts").innerHTML = this.responseText;
-        }
-    };
-
-    xhttp.open("POST", "contacts", true);
-    xhttp.send();
-    return false;
-}
-
-
 
 
 // function to admin users, show all registers users

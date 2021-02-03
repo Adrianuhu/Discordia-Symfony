@@ -1,0 +1,60 @@
+ {% if room %}
+
+
+{%for ro in room %}
+	      
+
+                {% if ro.typeOfRoom=='chat' %}
+             
+                       <div onclick="loadChat('{{ro.codRoom}}','{{ro.photo}}', '{{ro.nick}}')" class="person notView">
+
+                    
+                        <button class="person2">
+                            <img class="profPict" src="images/avatar/{{ro.photo}}"alt="image_user">
+                            <div class="friendName">{{ro.nick}}</div>
+                        </button>
+    
+                    </div>
+                {%else%}
+            
+                       <div onclick="loadChat('{{ro.codRoom}}','{{ro.photo}}', '{{ro.codRoom}}')" class="person notView">
+
+                    
+                        <button class="person2">
+                            <img class="profPict" src="images/avatar/{{ro.img_room}}"alt="image_user">
+                            <div class="friendName">{{ro.codRoom}}</div>
+                        </button>
+    
+                    </div>
+                {%endif%}
+
+          {#
+                $view_MSG = load_view($_SESSION['user']['cod_user'], $ro["codRoom"] );
+                if($view_MSG===false){
+                    echo "<p class='error'>Error connecting to the database, or no room present</p>";
+                }else{
+                    if ($view_MSG['view'] == 0) {
+                        $view = "notView";
+                    }
+                }
+            #}
+            
+          
+
+                 
+       
+                
+{% endfor %}
+
+
+{% else %}
+<p class='error'>You have no chats :(</p>
+ {%endif%}
+
+
+
+{# 
+		
+
+
+                #}

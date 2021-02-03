@@ -1,11 +1,3 @@
- {% if friends %}
-
- {%endif%}
-
-{%for friend in friends %}
-	               
-                
-{% endfor %}
 
 
         <div class="chat">
@@ -24,7 +16,7 @@
 	{%for ro in room %}
                     <div class="msgR">
                         <div class="photo">
-                         <img class="profPict" src="images/avatar/'.$ro["photo"].'"alt="image_user">
+                         <img class="profPict" src="images/avatar/{{ro.photo}}"alt="image_user">
                         </div>
                         <div class="content">
 				{{ro.text_message}}
@@ -53,7 +45,7 @@
 
                 <form onsubmit = "return sendMessage();" class="txtMsj">
                     <input type="text" placeholder="Write here" id="textMessage" value="" class="msgBar">     
-                    <input id="codRoomMessage" type="hidden" value = "{{codeRoom}}">
+                    <input id="codRoomMessage" type="hidden" value = "{{codRoom}}">
                     <input id="avatar_chat" type="hidden" value = "{{avatar_chat}}">
                     <input id="name_chat" type="hidden" value = "{{name_chat}}">
 
@@ -64,7 +56,7 @@
                 </form>
 
                 <div class="fileBtn">
-                <input id="code_my_usr" type="hidden" value = "<?php echo $_SESSION['user']['cod_user']?>">
+                <input id="code_my_usr" type="hidden" value = "{{cod}}">
                
                 
                <label for="fileupload" class="sendBtn">Choose file</label>
