@@ -4,14 +4,11 @@
 
  {% if friends %}
 
-                 {%for friend in friends %}
+    {%for friend in friends %}
 					
 
 		{% if friend.status == 2 %}
-                    
-                  
-                       
-	
+
 					<div onclick="loadFriendProfile({{friend.cod_user}})" class="person" method = "POST">
 	
 			
@@ -25,41 +22,42 @@
 					</div>
 					
                     
- {%endif%}
+ 		{%endif%}
                 
-				{% endfor %}
+	{% endfor %}
+
+
+    {%for friend in friendReq %}
+
+					
+		{% if friend.status == 0 %}
+				  
+					   <div class="person">
+	
+					   <img class="profPict" src="images/avatar/{{friend.photo}}"alt="image_user">
+							<div class="rest">
+								<div class="friendName">{{friend.nick}}</div>
+								
+								<div class="acDecBut">
+									<button onclick="acceptFriend({{friend.cod_user}})" class="ac">Y</button>
+									<button onclick="denyFriend({{friend.cod_user}})" class="dec">N</button>
+								</div>
+							</div>
+						</div>
+		
+					</div>
+
+ 		{%endif%}
+				   
+
+
+	{% endfor %}
+				
 {% else %}
 
 <p class='error'>You have no friends </p>
  {%endif%}
 {# 
 				   
-
-            foreach($friendReq as $ro){	
-	
-					$picture = $ro["photo"];
-					$name = $ro["nick"];
-					$codUser = $ro["cod_user"];
-					
-				   if ($ro["status"] == 0) {
-					   echo'
-					   <div class="person">
-	
-					   <img class="profPict" src="images/avatar/'.$picture.'"alt="image_user">
-							<div class="rest">
-								<div class="friendName">'.$name.'</div>
-								
-								<div class="acDecBut">
-									<button onclick="acceptFriend('.$codUser.')" class="ac">Y</button>
-									<button onclick="denyFriend('.$codUser.')" class="dec">N</button>
-								</div>
-							</div>
-						</div>
-		
-					</div>
-	
-					   ';
-				   }               
-				}
 
                 #}

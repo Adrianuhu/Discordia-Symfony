@@ -1,4 +1,4 @@
-// load main page
+// load main page DONE
 function load_Main() {
 
     var xhttp = new XMLHttpRequest();
@@ -12,7 +12,7 @@ function load_Main() {
     // return false;
     xhttp.open("POST", "main", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("user=" + 2 + "&password=" + 11223);
+    xhttp.send();
     return false;
 }
 
@@ -26,7 +26,7 @@ function loadLogin() {
             document.body.innerHTML = this.responseText;
         }
     };
-    xhttp.open("POST", "login.php", true);
+    xhttp.open("POST", "login", true);
     xhttp.send();
     return false;
 }
@@ -44,12 +44,27 @@ function accessLogin() {
     };
     var name = document.getElementById("user").value;
     var password = document.getElementById("password").value;
-    xhttp.open("POST", "pages/accessLogin.php", true);
+    xhttp.open("POST", "accessLogin", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("user=" + name + "&password=" + password);
     return false;
 }
 
+
+// show all friends and pending friend requests DONE
+function showFriends() {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("contacts").innerHTML = this.responseText;
+        }
+    };
+
+    xhttp.open("POST", "friend", true);
+    xhttp.send();
+    return false;
+}
 
 
 
@@ -66,7 +81,7 @@ function loadChat(codRoom, avatar_chat, name_chat) {
 
         }
     };
-    xhttp.open("POST", "pages/chat_AJAX.php", true);
+    xhttp.open("POST", "chat_AJAX", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("codRoom=" + codRoom + "&avatar_chat=" + avatar_chat + "&name_chat=" + name_chat);
     return false;
@@ -89,7 +104,7 @@ function sendMessage() {
     var num1 = document.getElementById("codRoomMessage").value;
     var num2 = document.getElementById("textMessage").value;
 
-    xhttp.open("POST", "pages/send_message_AJAX.php", true);
+    xhttp.open("POST", "send_message_AJAX", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("codRoom=" + num1 + "&text=" + num2);
     return false;
@@ -103,7 +118,7 @@ async function uploadFile() {
     formData.append("code_room", document.getElementById("codRoomMessage").value);
     formData.append("code_my_usr", document.getElementById("code_my_usr").value);
 
-    await fetch('pages/upload_files.php', {
+    await fetch('upload_files', {
         method: "POST",
         body: formData
     });
@@ -129,7 +144,7 @@ function sendNewMessage() {
 
     var num1 = document.getElementById("userTo").value;
     var num2 = document.getElementById("textMessage").value;
-    xhttp.open("POST", "pages/send_message_newMessage_AJAX.php", true);
+    xhttp.open("POST", "send_message_newMessage_AJAX", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("user=" + num1 + "&text=" + num2);
     return false;
@@ -150,7 +165,7 @@ function sendFriendRequest() {
 
     var num1 = document.getElementById("userTo").value;
     var num2 = document.getElementById("textMessage").value;
-    xhttp.open("POST", "pages/request_friend.php", true);
+    xhttp.open("POST", "request_friend", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("user=" + num1 + "&text=" + num2);
     return false;
@@ -168,7 +183,7 @@ function showSB() {
         }
     };
 
-    xhttp.open("POST", "pages/search_bar.php", true);
+    xhttp.open("POST", "search_bar", true);
     xhttp.send();
     return false;
 }
@@ -184,7 +199,7 @@ function showSBF() {
         }
     };
 
-    xhttp.open("POST", "pages/search_bar_friend.php", true);
+    xhttp.open("POST", "search_bar_friend", true);
     xhttp.send();
     return false;
 }
@@ -200,26 +215,12 @@ function showContacts() {
         }
     };
 
-    xhttp.open("POST", "pages/contacts.php", true);
+    xhttp.open("POST", "contacts", true);
     xhttp.send();
     return false;
 }
 
 
-// show all friends and pending friend requests
-function showFriends() {
-
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("contacts").innerHTML = this.responseText;
-        }
-    };
-
-    xhttp.open("POST", "friend", true);
-    xhttp.send();
-    return false;
-}
 
 
 // function to admin users, show all registers users
@@ -232,7 +233,7 @@ function showAllUsers() {
         }
     };
 
-    xhttp.open("POST", "pages/allUser.php", true);
+    xhttp.open("POST", "allUser", true);
     xhttp.send();
     return false;
 }
@@ -248,7 +249,7 @@ function showModifyProfile() {
         }
     };
 
-    xhttp.open("POST", "pages/profile.php", true);
+    xhttp.open("POST", "profile", true);
     xhttp.send();
     return false;
 }
@@ -263,7 +264,7 @@ function showNewGroup() {
             document.getElementById("chat1").innerHTML = this.responseText;
         }
     };
-    xhttp.open("POST", "pages/newGroup.php", true);
+    xhttp.open("POST", "newGroup", true);
     xhttp.send();
     return false;
 }
@@ -280,7 +281,7 @@ function createNewGroup() {
     };
     var users = document.getElementById("userTo").value;
     var namegroup = document.getElementById("nameGroup").value;
-    xhttp.open("POST", "pages/createNewGroup.php", true);
+    xhttp.open("POST", "createNewGroup", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("users=" + users + "&nameGroup=" + namegroup);
     return false;
@@ -297,7 +298,7 @@ function loadFriendProfile(codUser) {
         }
     };
 
-    xhttp.open("POST", "pages/profFriend.php", true);
+    xhttp.open("POST", "profFriend", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("codUser=" + codUser);
     return false;
@@ -314,7 +315,7 @@ function acceptFriend(codUser) {
         }
     };
 
-    xhttp.open("POST", "pages/acceptFriend.php", true);
+    xhttp.open("POST", "acceptFriend", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("codUser=" + codUser);
     return false;
@@ -331,7 +332,7 @@ function denyFriend(codUser) {
         }
     };
 
-    xhttp.open("POST", "pages/denyFriend.php", true);
+    xhttp.open("POST", "denyFriend", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("codUser=" + codUser);
     return false;
@@ -348,7 +349,7 @@ function sendFriendship() {
         }
     };
     var nameUser = document.getElementById("userTo").value;
-    xhttp.open("POST", "pages/sendFriendship.php", true);
+    xhttp.open("POST", "sendFriendship", true);
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send("nameUser=" + nameUser);
     return false;
@@ -365,7 +366,7 @@ function logOut() {
         }
     };
 
-    xhttp.open("POST", "pages/logout.php", true);
+    xhttp.open("POST", "logout", true);
     xhttp.send();
     return false;
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace ContainerAf5yS63;
+namespace ContainerFtbcMS3;
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -1672,30 +1672,6 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.OO17oTp' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_OO17oTpService()
-    {
-        return $this->privates['.service_locator.OO17oTp'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\Example1::index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
-            'App\\Controller\\Example1:index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
-        ], [
-            'App\\Controller\\Example1::index' => '?',
-            'App\\Controller\\Example1::main' => '?',
-            'App\\Controller\\SecurityController::login' => '?',
-            'App\\Controller\\Example1:index' => '?',
-            'App\\Controller\\Example1:main' => '?',
-            'App\\Controller\\SecurityController:login' => '?',
-        ]);
-    }
-
-    /**
      * Gets the private '.service_locator.pNNo5z3' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -1742,6 +1718,38 @@ class App_KernelDevDebugContainer extends Container
             'authenticationUtils' => ['services', 'security.authentication_utils', 'getSecurity_AuthenticationUtilsService', false],
         ], [
             'authenticationUtils' => '?',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.uwn30gA' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_Uwn30gAService()
+    {
+        return $this->privates['.service_locator.uwn30gA'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\Example1::chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1::friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1::index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1::main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
+            'App\\Controller\\Example1:chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1:friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1:index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example1:main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
+        ], [
+            'App\\Controller\\Example1::chat_AJAX' => '?',
+            'App\\Controller\\Example1::friend' => '?',
+            'App\\Controller\\Example1::index' => '?',
+            'App\\Controller\\Example1::main' => '?',
+            'App\\Controller\\SecurityController::login' => '?',
+            'App\\Controller\\Example1:chat_AJAX' => '?',
+            'App\\Controller\\Example1:friend' => '?',
+            'App\\Controller\\Example1:index' => '?',
+            'App\\Controller\\Example1:main' => '?',
+            'App\\Controller\\SecurityController:login' => '?',
         ]);
     }
 
@@ -2459,7 +2467,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.OO17oTp'] ?? $this->get_ServiceLocator_OO17oTpService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.uwn30gA'] ?? $this->get_ServiceLocator_Uwn30gAService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2501,7 +2509,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.OO17oTp'] ?? $this->get_ServiceLocator_OO17oTpService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.uwn30gA'] ?? $this->get_ServiceLocator_Uwn30gAService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**

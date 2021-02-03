@@ -1,0 +1,85 @@
+ {% if friends %}
+
+ {%endif%}
+
+{%for friend in friends %}
+	               
+                
+{% endfor %}
+
+
+        <div class="chat">
+            <div class="userSendTo">
+                <img src="images/avatar/{{avatar_chat}}" alt="avatar of chat" class="profPict">
+                <div class="friendName">{{name_chat}}</div>
+
+            </div>
+
+
+            <div class="text" id="textChat">
+
+
+ {% if room %}
+
+	{%for ro in room %}
+                    <div class="msgR">
+                        <div class="photo">
+                         <img class="profPict" src="images/avatar/'.$ro["photo"].'"alt="image_user">
+                        </div>
+                        <div class="content">
+				{{ro.text_message}}
+                        
+{#
+
+                        $link = preg_match("/\/\/localhost/", $ro["text_message"]);
+                       if ($link == 1) {
+                           echo '<a href="'.$ro["text_message"].'">'.$ro["text_message"].'</a>';
+                       } else {
+                           echo $ro["text_message"];
+                       }
+#}
+                        
+                        
+                    	</div>
+                    </div>
+					
+	{% endfor %}
+
+ {%endif%}
+
+            </div>
+
+            <div class="chtBot">
+
+                <form onsubmit = "return sendMessage();" class="txtMsj">
+                    <input type="text" placeholder="Write here" id="textMessage" value="" class="msgBar">     
+                    <input id="codRoomMessage" type="hidden" value = "{{codeRoom}}">
+                    <input id="avatar_chat" type="hidden" value = "{{avatar_chat}}">
+                    <input id="name_chat" type="hidden" value = "{{name_chat}}">
+
+                
+                
+                    <input type = "submit" class="sendBtn" value="Send">
+
+                </form>
+
+                <div class="fileBtn">
+                <input id="code_my_usr" type="hidden" value = "<?php echo $_SESSION['user']['cod_user']?>">
+               
+                
+               <label for="fileupload" class="sendBtn">Choose file</label>
+               <input id="fileupload" type="file" name="pepe" />
+               <button for="fileupload" onclick="uploadFile()" class="sendBtn"> Upload </button>
+
+          
+                </div>
+            </div>
+
+           
+                
+        </div>
+
+    </div>
+
+
+                

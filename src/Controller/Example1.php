@@ -30,28 +30,47 @@ class Example1 extends AbstractController{
 	public function main(Request $request, SessionInterface $session){
 		
 		$se = 1;
-		$var=$request->get("password"); //`POST METHOD
+		$var=$request->get("password"); //POST METHOD
 		$cod  = $session->get('codUser');
-   
+		
 		$nameUser = load_name_user($cod)['name'];
 
 		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser) );
 	}
-
+	
     /**
-     * @Route("/friend", name="friend")
+	 * @Route("/friend", name="friend")
      */
-    public function friend(SessionInterface $session){
-			$cod  = $session->get('codUser');
-			$friends = load_friends($cod)->fetchAll();;
-			$friendReq = checkAcceptDeny($cod);
+	public function friend(SessionInterface $session){
+		$cod  = $session->get('codUser');
+		$friends = load_friends($cod);
+		$friendReq = checkAcceptDeny($cod);
+		
+		return $this->render('friend.html.twig', array('friends'=> $friends, 'friendReq' => $friendReq) );
+		
+	}
+	
+    /**
+	 * @Route("/chat_AJAX", name="chat_AJAX")
+     */
+	public function chat_AJAX(SessionInterface $session){
+		$codRoom=$request->get("codRoom"); //POST METHOD
+		$avatar_chat=$request->get("avatar_chat"); //POST METHOD
+		$name_chat=$request->get("name_chat"); //POST METHOD
+
+		$room = load_chat($codRoom);
+		$cod  = $session->get('codUser');
+
+		setView($codRoom, $cod);
+
 			
-			return $this->render('friend.html.twig', array('friends'=> $friends, 'friendReq' => $friendReq) );
+			return $this->render('chat_AJAX.html.twig', array('codRoom'=> $codRoom, 'avatar_chat' => $avatar_chat, 'name_chat' => $name_chat, 'room' => $room) );
 
 		}
-	
+		
+		
 }
-
+//-----------------------------------------------------------------
 
 function load_config($name, $schema){
 	$config = new \DOMDocument();

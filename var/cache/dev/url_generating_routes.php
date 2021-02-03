@@ -18,6 +18,7 @@ return [
     'index' => [[], ['_controller' => 'App\\Controller\\Example1::index'], [], [['text', '/index']], [], []],
     'main' => [[], ['_controller' => 'App\\Controller\\Example1::main'], [], [['text', '/main']], [], []],
     'friend' => [[], ['_controller' => 'App\\Controller\\Example1::friend'], [], [['text', '/friend']], [], []],
+    'chat_AJAX' => [[], ['_controller' => 'App\\Controller\\Example1::chat_AJAX'], [], [['text', '/chat_AJAX']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

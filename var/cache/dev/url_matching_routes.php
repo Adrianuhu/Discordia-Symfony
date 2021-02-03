@@ -16,6 +16,7 @@ return [
         '/index' => [[['_route' => 'index', '_controller' => 'App\\Controller\\Example1::index'], null, null, null, false, false, null]],
         '/main' => [[['_route' => 'main', '_controller' => 'App\\Controller\\Example1::main'], null, null, null, false, false, null]],
         '/friend' => [[['_route' => 'friend', '_controller' => 'App\\Controller\\Example1::friend'], null, null, null, false, false, null]],
+        '/chat_AJAX' => [[['_route' => 'chat_AJAX', '_controller' => 'App\\Controller\\Example1::chat_AJAX'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],

@@ -49,7 +49,7 @@ class __TwigTemplate_244c7233c6f17620b708831c6140a864520df5e1d0b809ccdf2f1dc7c9a
         if ((isset($context["friends"]) || array_key_exists("friends", $context) ? $context["friends"] : (function () { throw new RuntimeError('Variable "friends" does not exist.', 5, $this->source); })())) {
             // line 6
             echo "
-                 ";
+    ";
             // line 7
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["friends"]) || array_key_exists("friends", $context) ? $context["friends"] : (function () { throw new RuntimeError('Variable "friends" does not exist.', 7, $this->source); })()));
@@ -61,49 +61,103 @@ class __TwigTemplate_244c7233c6f17620b708831c6140a864520df5e1d0b809ccdf2f1dc7c9a
                 // line 10
                 if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["friend"], "status", [], "any", false, false, false, 10), 2)) {
                     // line 11
-                    echo "                    
-                  
-                       
-\t
+                    echo "
 \t\t\t\t\t<div onclick=\"loadFriendProfile(";
-                    // line 15
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "cod_user", [], "any", false, false, false, 15), "html", null, true);
+                    // line 12
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "cod_user", [], "any", false, false, false, 12), "html", null, true);
                     echo ")\" class=\"person\" method = \"POST\">
 \t
 \t\t\t
 \t\t\t\t\t\t<input name = \"name_chat\" type=\"hidden\" value = '";
-                    // line 18
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "nick", [], "any", false, false, false, 18), "html", null, true);
+                    // line 15
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "nick", [], "any", false, false, false, 15), "html", null, true);
                     echo "'>
 \t\t\t\t\t\t<input name = \"avatar_chat\" type=\"hidden\" value = \"";
-                    // line 19
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "photo", [], "any", false, false, false, 19), "html", null, true);
+                    // line 16
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "photo", [], "any", false, false, false, 16), "html", null, true);
                     echo "\">                        
 \t\t\t\t\t\t<button type=\"submit\" class=\"person2\">
 \t\t\t\t\t\t\t<img class=\"profPict\" src=\"images/avatar/";
-                    // line 21
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "photo", [], "any", false, false, false, 21), "html", null, true);
+                    // line 18
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "photo", [], "any", false, false, false, 18), "html", null, true);
                     echo "\"alt=\"image_user\">
 \t\t\t\t\t\t\t<div class=\"friendName\">";
-                    // line 22
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "nick", [], "any", false, false, false, 22), "html", null, true);
+                    // line 19
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "nick", [], "any", false, false, false, 19), "html", null, true);
                     echo "</div>
 \t\t\t\t\t\t</button>
 \t
 \t\t\t\t\t</div>
 \t\t\t\t\t
                     
- ";
+ \t\t";
                 }
-                // line 29
+                // line 26
                 echo "                
-\t\t\t\t";
+\t";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['friend'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 28
+            echo "
+
+    ";
+            // line 30
+            $context['_parent'] = $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["friendReq"]) || array_key_exists("friendReq", $context) ? $context["friendReq"] : (function () { throw new RuntimeError('Variable "friendReq" does not exist.', 30, $this->source); })()));
+            foreach ($context['_seq'] as $context["_key"] => $context["friend"]) {
+                // line 31
+                echo "
+\t\t\t\t\t
+\t\t";
+                // line 33
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["friend"], "status", [], "any", false, false, false, 33), 0)) {
+                    // line 34
+                    echo "\t\t\t\t  
+\t\t\t\t\t   <div class=\"person\">
+\t
+\t\t\t\t\t   <img class=\"profPict\" src=\"images/avatar/";
+                    // line 37
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "photo", [], "any", false, false, false, 37), "html", null, true);
+                    echo "\"alt=\"image_user\">
+\t\t\t\t\t\t\t<div class=\"rest\">
+\t\t\t\t\t\t\t\t<div class=\"friendName\">";
+                    // line 39
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "nick", [], "any", false, false, false, 39), "html", null, true);
+                    echo "</div>
+\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t<div class=\"acDecBut\">
+\t\t\t\t\t\t\t\t\t<button onclick=\"acceptFriend(";
+                    // line 42
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "cod_user", [], "any", false, false, false, 42), "html", null, true);
+                    echo ")\" class=\"ac\">Y</button>
+\t\t\t\t\t\t\t\t\t<button onclick=\"denyFriend(";
+                    // line 43
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["friend"], "cod_user", [], "any", false, false, false, 43), "html", null, true);
+                    echo ")\" class=\"dec\">N</button>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t
+\t\t\t\t\t</div>
+
+ \t\t";
+                }
+                // line 51
+                echo "\t\t\t\t   
+
+
+\t";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['friend'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 55
+            echo "\t\t\t\t
+";
         } else {
-            // line 32
+            // line 57
             echo "
 <p class='error'>You have no friends </p>
  ";
@@ -128,7 +182,7 @@ class __TwigTemplate_244c7233c6f17620b708831c6140a864520df5e1d0b809ccdf2f1dc7c9a
 
     public function getDebugInfo()
     {
-        return array (  107 => 32,  99 => 29,  89 => 22,  85 => 21,  80 => 19,  76 => 18,  70 => 15,  64 => 11,  62 => 10,  58 => 8,  54 => 7,  51 => 6,  49 => 5,  43 => 1,);
+        return array (  161 => 57,  157 => 55,  148 => 51,  137 => 43,  133 => 42,  127 => 39,  122 => 37,  117 => 34,  115 => 33,  111 => 31,  107 => 30,  103 => 28,  96 => 26,  86 => 19,  82 => 18,  77 => 16,  73 => 15,  67 => 12,  64 => 11,  62 => 10,  58 => 8,  54 => 7,  51 => 6,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -139,14 +193,11 @@ class __TwigTemplate_244c7233c6f17620b708831c6140a864520df5e1d0b809ccdf2f1dc7c9a
 
  {% if friends %}
 
-                 {%for friend in friends %}
+    {%for friend in friends %}
 \t\t\t\t\t
 
 \t\t{% if friend.status == 2 %}
-                    
-                  
-                       
-\t
+
 \t\t\t\t\t<div onclick=\"loadFriendProfile({{friend.cod_user}})\" class=\"person\" method = \"POST\">
 \t
 \t\t\t
@@ -160,42 +211,43 @@ class __TwigTemplate_244c7233c6f17620b708831c6140a864520df5e1d0b809ccdf2f1dc7c9a
 \t\t\t\t\t</div>
 \t\t\t\t\t
                     
- {%endif%}
+ \t\t{%endif%}
                 
-\t\t\t\t{% endfor %}
+\t{% endfor %}
+
+
+    {%for friend in friendReq %}
+
+\t\t\t\t\t
+\t\t{% if friend.status == 0 %}
+\t\t\t\t  
+\t\t\t\t\t   <div class=\"person\">
+\t
+\t\t\t\t\t   <img class=\"profPict\" src=\"images/avatar/{{friend.photo}}\"alt=\"image_user\">
+\t\t\t\t\t\t\t<div class=\"rest\">
+\t\t\t\t\t\t\t\t<div class=\"friendName\">{{friend.nick}}</div>
+\t\t\t\t\t\t\t\t
+\t\t\t\t\t\t\t\t<div class=\"acDecBut\">
+\t\t\t\t\t\t\t\t\t<button onclick=\"acceptFriend({{friend.cod_user}})\" class=\"ac\">Y</button>
+\t\t\t\t\t\t\t\t\t<button onclick=\"denyFriend({{friend.cod_user}})\" class=\"dec\">N</button>
+\t\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t\t</div>
+\t\t\t\t\t\t</div>
+\t\t
+\t\t\t\t\t</div>
+
+ \t\t{%endif%}
+\t\t\t\t   
+
+
+\t{% endfor %}
+\t\t\t\t
 {% else %}
 
 <p class='error'>You have no friends </p>
  {%endif%}
 {# 
 \t\t\t\t   
-
-            foreach(\$friendReq as \$ro){\t
-\t
-\t\t\t\t\t\$picture = \$ro[\"photo\"];
-\t\t\t\t\t\$name = \$ro[\"nick\"];
-\t\t\t\t\t\$codUser = \$ro[\"cod_user\"];
-\t\t\t\t\t
-\t\t\t\t   if (\$ro[\"status\"] == 0) {
-\t\t\t\t\t   echo'
-\t\t\t\t\t   <div class=\"person\">
-\t
-\t\t\t\t\t   <img class=\"profPict\" src=\"images/avatar/'.\$picture.'\"alt=\"image_user\">
-\t\t\t\t\t\t\t<div class=\"rest\">
-\t\t\t\t\t\t\t\t<div class=\"friendName\">'.\$name.'</div>
-\t\t\t\t\t\t\t\t
-\t\t\t\t\t\t\t\t<div class=\"acDecBut\">
-\t\t\t\t\t\t\t\t\t<button onclick=\"acceptFriend('.\$codUser.')\" class=\"ac\">Y</button>
-\t\t\t\t\t\t\t\t\t<button onclick=\"denyFriend('.\$codUser.')\" class=\"dec\">N</button>
-\t\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t\t</div>
-\t\t\t\t\t\t</div>
-\t\t
-\t\t\t\t\t</div>
-\t
-\t\t\t\t\t   ';
-\t\t\t\t   }               
-\t\t\t\t}
 
                 #}", "friend.html.twig", "C:\\Users\\Adrián\\Discordia-Symfony\\templates\\friend.html.twig");
     }
