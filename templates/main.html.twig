@@ -13,7 +13,7 @@
             <div class="menu">
                 <button class="tab" onclick="showContacts()">Messages</button>
                 
-                {% if rol%}
+                {% if rol == 0 %}
                 <button class="tab" onclick="showFriends()">Friends</button>
                 {% else %}
                 <button class="tab" onclick="showAllUsers()">All Users</button>

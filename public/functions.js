@@ -87,7 +87,7 @@ function loadChat(codRoom, avatar_chat, name_chat) {
     return false;
 }
 
-// show all chats actives
+// show all chats actives DONE
 function showContacts() {
 
     var xhttp = new XMLHttpRequest();
@@ -145,7 +145,7 @@ async function uploadFile() {
 }
 
 
-// send message to one or more users 
+// send message to one or more users DONE
 function sendNewMessage() {
 
     var xhttp = new XMLHttpRequest();
@@ -187,7 +187,7 @@ function sendFriendRequest() {
 }
 
 
-// load a form to send a message
+// load a form to send a message DONE
 function showSB() {
 
     var xhttp = new XMLHttpRequest();
@@ -203,7 +203,7 @@ function showSB() {
 }
 
 
-// load a form to send a friendship
+// load a form to send a friendship DONE
 function showSBF() {
 
     var xhttp = new XMLHttpRequest();
@@ -235,7 +235,7 @@ function showAllUsers() {
 }
 
 
-// show a form to modify users profiles
+// show a form to modify users profiles DONE
 function showModifyProfile() {
 
     var xhttp = new XMLHttpRequest();
@@ -251,7 +251,7 @@ function showModifyProfile() {
 }
 
 
-// show a form to create a new group
+// show a form to create a new group DONE
 function showNewGroup() {
 
     var xhttp = new XMLHttpRequest();
@@ -266,7 +266,7 @@ function showNewGroup() {
 }
 
 
-// function to create new group, not show anything 
+// function to create new group, not show anything DONE
 function createNewGroup() {
 
     var xhttp = new XMLHttpRequest();
@@ -284,7 +284,7 @@ function createNewGroup() {
 }
 
 
-// load the profile of a friend
+// load the profile of a friend DONE
 function loadFriendProfile(codUser) {
 
     var xhttp = new XMLHttpRequest();
@@ -334,7 +334,7 @@ function denyFriend(codUser) {
     return false;
 }
 
-// function to send a friendship
+// function to send a friendship DONE
 function sendFriendship() {
 
     var xhttp = new XMLHttpRequest();

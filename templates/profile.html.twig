@@ -1,0 +1,31 @@
+
+
+    <form action="pages/uploadProfile.php" method="post" enctype="multipart/form-data">
+      
+        <div class="imgcontainer">
+      <img src="images/avatar/{{currentData.photo}}" class="profPict" alt="Hello there">;
+           
+        </div>
+
+
+        <div class="container">
+
+            <label for="name"><b>New name</b></label>
+            <input type="text" value="{{currentData.name}}" name="name">
+          
+            <label for="surname"><b>New surname</b></label>
+            <input type="text" value="{{currentData.surname}}" name="surname">
+
+
+            <label for="description"><b>Description about yourself(250 characters)</b></label>
+            <textarea name="description">{{currentData.description}}</textarea>
+
+
+            <label for="file-upload" class="uploadProfPic"><b>Choose avatar photo</b></label>
+            <input id="file-upload" type="file" name="myfile" value="{{currentData.photo}}">
+            <input type="hidden" value="{{currentData.nick}}" name="nick">
+
+            <button type="submit" class="create">Save changes</button>
+        </div>
+
+    </form>	   

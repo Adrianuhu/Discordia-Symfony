@@ -20,7 +20,8 @@ class Example1 extends AbstractController{
      */
 	public function index(SessionInterface $session){
 		
-		$session->set('codUser', '30');
+		$session->set('codUser', '26');
+		$session->set('rol', '1');
 		
 		return $this->render('index.html.twig');
     }
@@ -32,10 +33,11 @@ class Example1 extends AbstractController{
 		$se = 1;
 		$var=$request->get("password"); //POST METHOD
 		$cod  = $session->get('codUser');
+		$rol = $session->get('rol');
 		
 		$nameUser = load_name_user($cod)['nick'];
 
-		return $this->render('main.html.twig', array('rol'=> true, 'nameUser' => $nameUser) );
+		return $this->render('main.html.twig', array('rol'=> $rol, 'nameUser' => $nameUser) );
 	}
 	
     /**
@@ -75,15 +77,137 @@ class Example1 extends AbstractController{
 		$cod  = $session->get('codUser');
 
 		
-        $room = load_room($cod);
-
+		$room = load_room($cod);
+		
+		$newRoom = array();
+		foreach ($room as $ro) {
+			$ro['view'] = load_view($cod, $ro["codRoom"])['view'];
+			$newRoom[] = $ro;
+		}
 			
-			return $this->render('contacts.html.twig', array('room' => $room) );
+			return $this->render('contacts.html.twig', array('room' => $newRoom) );
 
 		}
 		
 		
+		/**
+		 * @Route("/profFriend", name="profFriend")
+		 */
+		public function profFriend(Request $request){
+			$cod=$request->get("codUser");
+	
+			
+			$currentData = load_name_user($cod);
+			
+				return $this->render('profFriend.html.twig', array('currentData' => $currentData) );
+	
+		}
+
+		/**
+		 * @Route("/profile", name="profile")
+		 */
+		public function profile(SessionInterface $session){
+			$cod  = $session->get('codUser');
+	
+			
+			$currentData = load_name_user($cod);
+			
+				return $this->render('profile.html.twig', array('currentData' => $currentData) );
+	
+		}
+		/**
+		 * @Route("/search_bar", name="search_bar")
+		 */
+		public function search_bar(){
+	
+				return $this->render('search_bar.html.twig');
+	
+		}
+		
+		/**
+		 * @Route("/send_message_newMessage_AJAX", name="send_message_newMessage_AJAX")
+		 */
+		
+		public function send_message_newMessage_AJAX(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+
+			$user=$request->get("user");
+			$text=$request->get("text");
+			
+			send_Message($cod, $user, $text);
+		
+				return $this->render('index.html.twig');
+	
+		}
+
+
+		/**
+		 * @Route("/search_bar_friend", name="search_bar_friend")
+		 */
+		
+		public function search_bar_friend(){
+			return $this->render('search_bar_friend.html.twig');
+	
+		}
+
+		/**
+		 * @Route("/sendFriendship", name="sendFriendship")
+		 */
+		
+		public function sendFriendship(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+
+			$userName=$request->get("nameUser");
+			
+			sendFriendship($cod, $userName);
+		
+				return $this->render('index.html.twig');
+	
+		}
+
+
+		/**
+		 * @Route("/newGroup", name="newGroup")
+		 */
+		
+		public function newGroup(){
+				return $this->render('newGroup.html.twig');
+	
+		}
+		
+
+		/**
+		 * @Route("/createNewGroup", name="createNewGroup")
+		 */
+		
+		public function createNewGroup(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+
+			$users=$request->get("users");
+			$nameGroup=$request->get("nameGroup");
+			
+			create_group($cod, $users, $nameGroup);
+
+				return $this->render('index.html.twig');
+	
+		}
+
+
+		/**
+		 * @Route("/allUser", name="allUser")
+		 */
+		
+		public function allUser(SessionInterface $session){
+			$room = load_allUser();
+			
+			
+
+				return $this->render('allUser.html.twig', array('room' => $room));
+	
+		}
 }
+		
+		
 //-----------------------------------------------------------------
 
 function load_config($name, $schema){

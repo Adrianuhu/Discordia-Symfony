@@ -57,7 +57,7 @@ class __TwigTemplate_6d47ac99d700515b8fb24682a578a45a7a1a498e1ea289566c927550cfa
                 
                 ";
         // line 16
-        if ((isset($context["rol"]) || array_key_exists("rol", $context) ? $context["rol"] : (function () { throw new RuntimeError('Variable "rol" does not exist.', 16, $this->source); })())) {
+        if (0 === twig_compare((isset($context["rol"]) || array_key_exists("rol", $context) ? $context["rol"] : (function () { throw new RuntimeError('Variable "rol" does not exist.', 16, $this->source); })()), 0)) {
             // line 17
             echo "                <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
                 ";
@@ -154,7 +154,7 @@ class __TwigTemplate_6d47ac99d700515b8fb24682a578a45a7a1a498e1ea289566c927550cfa
             <div class=\"menu\">
                 <button class=\"tab\" onclick=\"showContacts()\">Messages</button>
                 
-                {% if rol%}
+                {% if rol == 0 %}
                 <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
                 {% else %}
                 <button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>
