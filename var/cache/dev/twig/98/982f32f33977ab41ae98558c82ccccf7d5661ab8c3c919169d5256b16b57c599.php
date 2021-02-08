@@ -42,7 +42,7 @@ class __TwigTemplate_ee2b26fbb94a5537cf6ce1ca5e958717bfdd7d51b5da23552205eb25bf4
         // line 1
         echo "
 
-    <form action=\"pages/uploadProfile.php\" method=\"post\" enctype=\"multipart/form-data\">
+    <form action=\"uploadProfile\" method=\"post\" enctype=\"multipart/form-data\">
       
         <div class=\"imgcontainer\">
       <img src=\"images/avatar/";
@@ -117,7 +117,7 @@ class __TwigTemplate_ee2b26fbb94a5537cf6ce1ca5e958717bfdd7d51b5da23552205eb25bf4
     {
         return new Source("
 
-    <form action=\"pages/uploadProfile.php\" method=\"post\" enctype=\"multipart/form-data\">
+    <form action=\"uploadProfile\" method=\"post\" enctype=\"multipart/form-data\">
       
         <div class=\"imgcontainer\">
       <img src=\"images/avatar/{{currentData.photo}}\" class=\"profPict\" alt=\"Hello there\">;

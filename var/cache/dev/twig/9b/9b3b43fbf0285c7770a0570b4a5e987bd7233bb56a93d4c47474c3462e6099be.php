@@ -78,14 +78,32 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
                 echo "\"alt=\"image_user\">
                         </div>
                         <div class=\"content\">
-\t\t\t\t";
-                // line 22
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "text_message", [], "any", false, false, false, 22), "html", null, true);
+\t\t\t
+            ";
+                // line 23
+                if (0 === twig_compare(twig_get_attribute($this->env, $this->source, $context["ro"], "link", [], "any", false, false, false, 23), 1)) {
+                    // line 24
+                    echo "                <img src=\"";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "text_message", [], "any", false, false, false, 24), "html", null, true);
+                    echo "\" alt=\"Img is not loading srry :´(\" width=\"100\">
+
+                <a href=\"";
+                    // line 26
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "text_message", [], "any", false, false, false, 26), "html", null, true);
+                    echo "\">";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "text_message", [], "any", false, false, false, 26), "html", null, true);
+                    echo "</a>
+            ";
+                } else {
+                    // line 28
+                    echo "                ";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "text_message", [], "any", false, false, false, 28), "html", null, true);
+                    echo "
+            ";
+                }
+                // line 30
                 echo "
                         
-";
-                // line 33
-                echo "                        
                         
                     \t</div>
                     </div>
@@ -95,11 +113,11 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ro'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 39
+            // line 37
             echo "
  ";
         }
-        // line 41
+        // line 39
         echo "
             </div>
 
@@ -108,16 +126,16 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
                 <form onsubmit = \"return sendMessage();\" class=\"txtMsj\">
                     <input type=\"text\" placeholder=\"Write here\" id=\"textMessage\" value=\"\" class=\"msgBar\">     
                     <input id=\"codRoomMessage\" type=\"hidden\" value = \"";
-        // line 48
-        echo twig_escape_filter($this->env, (isset($context["codRoom"]) || array_key_exists("codRoom", $context) ? $context["codRoom"] : (function () { throw new RuntimeError('Variable "codRoom" does not exist.', 48, $this->source); })()), "html", null, true);
+        // line 46
+        echo twig_escape_filter($this->env, (isset($context["codRoom"]) || array_key_exists("codRoom", $context) ? $context["codRoom"] : (function () { throw new RuntimeError('Variable "codRoom" does not exist.', 46, $this->source); })()), "html", null, true);
         echo "\">
                     <input id=\"avatar_chat\" type=\"hidden\" value = \"";
-        // line 49
-        echo twig_escape_filter($this->env, (isset($context["avatar_chat"]) || array_key_exists("avatar_chat", $context) ? $context["avatar_chat"] : (function () { throw new RuntimeError('Variable "avatar_chat" does not exist.', 49, $this->source); })()), "html", null, true);
+        // line 47
+        echo twig_escape_filter($this->env, (isset($context["avatar_chat"]) || array_key_exists("avatar_chat", $context) ? $context["avatar_chat"] : (function () { throw new RuntimeError('Variable "avatar_chat" does not exist.', 47, $this->source); })()), "html", null, true);
         echo "\">
                     <input id=\"name_chat\" type=\"hidden\" value = \"";
-        // line 50
-        echo twig_escape_filter($this->env, (isset($context["name_chat"]) || array_key_exists("name_chat", $context) ? $context["name_chat"] : (function () { throw new RuntimeError('Variable "name_chat" does not exist.', 50, $this->source); })()), "html", null, true);
+        // line 48
+        echo twig_escape_filter($this->env, (isset($context["name_chat"]) || array_key_exists("name_chat", $context) ? $context["name_chat"] : (function () { throw new RuntimeError('Variable "name_chat" does not exist.', 48, $this->source); })()), "html", null, true);
         echo "\">
 
                 
@@ -128,8 +146,8 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
 
                 <div class=\"fileBtn\">
                 <input id=\"code_my_usr\" type=\"hidden\" value = \"";
-        // line 59
-        echo twig_escape_filter($this->env, (isset($context["cod"]) || array_key_exists("cod", $context) ? $context["cod"] : (function () { throw new RuntimeError('Variable "cod" does not exist.', 59, $this->source); })()), "html", null, true);
+        // line 57
+        echo twig_escape_filter($this->env, (isset($context["cod"]) || array_key_exists("cod", $context) ? $context["cod"] : (function () { throw new RuntimeError('Variable "cod" does not exist.', 57, $this->source); })()), "html", null, true);
         echo "\">
                
                 
@@ -169,7 +187,7 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
 
     public function getDebugInfo()
     {
-        return array (  132 => 59,  120 => 50,  116 => 49,  112 => 48,  103 => 41,  99 => 39,  88 => 33,  83 => 22,  77 => 19,  73 => 17,  69 => 16,  66 => 15,  64 => 14,  53 => 6,  49 => 5,  43 => 1,);
+        return array (  150 => 57,  138 => 48,  134 => 47,  130 => 46,  121 => 39,  117 => 37,  105 => 30,  99 => 28,  92 => 26,  86 => 24,  84 => 23,  77 => 19,  73 => 17,  69 => 16,  66 => 15,  64 => 14,  53 => 6,  49 => 5,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -195,17 +213,15 @@ class __TwigTemplate_f3cf890635018fe483cc9c00c90538ec6870ac10adae6a9c632d4a94bc9
                          <img class=\"profPict\" src=\"images/avatar/{{ro.photo}}\"alt=\"image_user\">
                         </div>
                         <div class=\"content\">
-\t\t\t\t{{ro.text_message}}
-                        
-{#
+\t\t\t
+            {% if ro.link == 1 %}
+                <img src=\"{{ro.text_message}}\" alt=\"Img is not loading srry :´(\" width=\"100\">
 
-                        \$link = preg_match(\"/\\/\\/localhost/\", \$ro[\"text_message\"]);
-                       if (\$link == 1) {
-                           echo '<a href=\"'.\$ro[\"text_message\"].'\">'.\$ro[\"text_message\"].'</a>';
-                       } else {
-                           echo \$ro[\"text_message\"];
-                       }
-#}
+                <a href=\"{{ro.text_message}}\">{{ro.text_message}}</a>
+            {%else%}
+                {{ro.text_message}}
+            {%endif%}
+
                         
                         
                     \t</div>

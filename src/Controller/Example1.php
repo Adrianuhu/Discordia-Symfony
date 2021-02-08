@@ -20,8 +20,8 @@ class Example1 extends AbstractController{
      */
 	public function index(SessionInterface $session){
 		
-		$session->set('codUser', '26');
-		$session->set('rol', '1');
+		$session->set('codUser', '30');
+		$session->set('rol', '0');
 		
 		return $this->render('index.html.twig');
     }
@@ -60,13 +60,22 @@ class Example1 extends AbstractController{
 		$avatar_chat=$request->get("avatar_chat"); //POST METHOD
 		$name_chat=$request->get("name_chat"); //POST METHOD
 
-		$room = load_chat($codRoom);
 		$cod  = $session->get('codUser');
+		
+		
+		$room = load_chat($codRoom);
+		
+		$newRoom = array();
+		
+		foreach ($room as $ro) {
+		
+			$ro['link'] = preg_match("/\/\/localhost/", $ro["text_message"]);
+			$newRoom[] = $ro;
+			}
 
 		setView($codRoom, $cod);
 
-			
-			return $this->render('chat_AJAX.html.twig', array('codRoom'=> $codRoom, 'avatar_chat' => $avatar_chat, 'name_chat' => $name_chat, 'room' => $room, 'cod' => $cod) );
+			return $this->render('chat_AJAX.html.twig', array('codRoom'=> $codRoom, 'avatar_chat' => $avatar_chat, 'name_chat' => $name_chat, 'room' => $newRoom, 'cod' => $cod) );
 
 		}
 		
@@ -139,6 +148,26 @@ class Example1 extends AbstractController{
 				return $this->render('index.html.twig');
 	
 		}
+		/**
+		 * @Route("/send_message_AJAX", name="send_message_AJAX")
+		 */
+		
+		public function send_message_AJAX(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+
+			$codRoom=$request->get("codRoom");
+			$text=$request->get("text");
+
+
+			if (!empty($text)) {
+				if ((isset($cod) && isset($codRoom) && $text != "")) {
+					send_chat_Message($cod, $codRoom, $text);
+					setNotView($codRoom, $cod);
+				}
+			}
+				return $this->render('index.html.twig');
+	
+		}
 
 
 		/**
@@ -203,6 +232,117 @@ class Example1 extends AbstractController{
 			
 
 				return $this->render('allUser.html.twig', array('room' => $room));
+	
+		}
+
+		/**
+		 * @Route("/acceptFriend", name="acceptFriend")
+		 */
+		
+		public function acceptFriend(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+			$codUser=$request->get("codUser");
+			
+			acceptFriend($cod, $codUser);
+
+				return $this->render('index.html.twig');
+	
+		}
+
+		/**
+		 * @Route("/denyFriend", name="denyFriend")
+		 */
+		
+		public function denyFriend(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+			$codUser=$request->get("codUser");
+			
+			denyFriend($cod, $codUser);
+
+				return $this->render('index.html.twig');
+	
+		}
+		/**
+		 * @Route("/request_friend", name="request_friend")
+		 */
+		
+		public function request_friend(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+			$user=$request->get("user");
+			$text=$request->get("text");
+			
+			send_Message($cod, $user, $text);
+
+				return $this->render('index.html.twig');
+	
+		}
+		/**
+		 * @Route("/send", name="send")
+		 */
+		
+		public function send(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+			$user=$request->get("user");
+			$text=$request->get("text");
+			
+			send_Message($cod, $user, $text);
+    
+				return $this->render('index.html.twig');
+	
+		}
+		/**
+		 * @Route("/upload_files", name="upload_files")
+		 */
+		
+		public function upload_files(SessionInterface $session, Request $request){
+			$code_my_usr=$request->get("code_my_usr");
+			$code_room=$request->get("code_room");
+			$codRoom=$request->get("codRoom");
+			$cod  = $session->get('codUser');
+
+			/* Get the name of the uploaded file */
+			$filename = $_FILES['file']['name'];
+			$tmp = $_FILES['file']['tmp_name'];
+
+			//$filename = $_POST['code_room'];
+
+			/* Choose where to save the uploaded file */
+			$location = "../files/".$filename;
+
+			/* Save the uploaded file to the local filesystem */
+			if ( move_uploaded_file($tmp, $location) ) { 
+			echo 'Success'; 
+			} else { 
+			echo 'Failure'; 
+			}
+
+			send_chat_Message( $code_my_usr, $code_room, "http://localhost/Operacion-Discordia/files/".$filename);
+			setNotView($codRoom, $cod);
+
+    
+				return $this->render('index.html.twig');
+	
+		}
+		/**
+		 * @Route("/uploadProfile", name="uploadProfile")
+		 */
+		
+		public function uploadProfile(SessionInterface $session, Request $request){
+			$nick=$request->get("nick");
+			$name=$request->get("name");
+			$surname=$request->get("surname");
+			$description=$request->get("description");
+		
+			$file = $request->request->all();
+
+			// $filename = $_FILES['file']['name'];
+			// $tmp = $_FILES['myfile']['tmp_name'];
+
+			// $res = move_uploaded_file($tmp,"../images/avatar/".$nick.".jpg");
+
+			// updateProf($name, $surname, $description, $nick.".jpg");
+    
+				return new Response('<html><body>aaa'.$file['myfile'].'</body></html>');
 	
 		}
 }

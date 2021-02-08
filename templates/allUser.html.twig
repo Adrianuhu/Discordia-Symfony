@@ -1,26 +1,11 @@
- {% if friends %}
-{% else %}
- {%endif%}
-
-{%for friend in friends %}
-	               
-                
-{% endfor %}
-
-
-{# 
-				   
+	   
    
-         (%if room === false %) 
+         {%if room == false %} 
            <p class='error'>Not exist users yet</p>
-         {% else %} {
+         {% else %} 
             {%for ro in room %}	
 
-                $picture = $ro["photo"];
-                $name = $ro["nick"];
-                $codUser = $ro["cod_user"];
-            
-                echo '
+         
 
                 <div onclick="loadFriendProfile({{ro.cod_user}})" class="person" method = "POST">
 
@@ -28,8 +13,8 @@
                     <input name = "name_chat" type="hidden" value = {{ro.nick}}>
                     <input name = "avatar_chat" type="hidden" value = {{ro.photo}}>                        
                     <button type="submit" class="person2">
-                        <img class="profPict" src="images/avatar/'.$picture.'"alt="image_user">
-                        <div class="friendName">'.$name.'</div>
+                        <img class="profPict" src="images/avatar/{{ro.photo}}"alt="image_user">
+                        <div class="friendName">{{ro.nick}}</div>
                     </button>
 
                 </div>
@@ -38,4 +23,4 @@
             {% endfor %}
 
         {%endif%}
-                    #}
+                    
