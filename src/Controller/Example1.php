@@ -9,12 +9,38 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\Session;
+use App\Entity\Message;
+use App\Entity\Room;
+use App\Entity\User;
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\EntityManagerInterface;
 
 /*#
 * @IsGranted("ROLE_USER")
 */
 
 class Example1 extends AbstractController{
+	/**
+	 * @Route("/test", name="test")
+     */
+	public function test(){
+		
+		$entityManager = $this->getDoctrine()->getManager();
+		
+		$cod = 30;
+		$nam = 'Sheev Frank';
+        $query = $entityManager->createQuery(
+            'select u.nick from App\Entity\User u'
+		);
+
+
+		$resul = $query->getResult();
+		$c = count($resul);
+		
+		return $this->render('plantilla.html.twig', array('friends'=> $resul, 'c'=> $c ) );
+    }
+
+
 	/**
 	 * @Route("/index", name="index")
      */
