@@ -42,12 +42,7 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
         // line 1
         echo "
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA ";
-        // line 3
-        echo twig_escape_filter($this->env, (isset($context["var"]) || array_key_exists("var", $context) ? $context["var"] : (function () { throw new RuntimeError('Variable "var" does not exist.', 3, $this->source); })()), "html", null, true);
-        echo " ";
-        echo twig_escape_filter($this->env, (isset($context["se"]) || array_key_exists("se", $context) ? $context["se"] : (function () { throw new RuntimeError('Variable "se" does not exist.', 3, $this->source); })()), "html", null, true);
-        echo "</a></p>
+\t\t<p id=\"nameMail\"><a href=\"/main\">DISCORDIA</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
         <div class=\"leftSide\">
@@ -62,7 +57,7 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
                 
                 ";
         // line 16
-        if ((isset($context["rol"]) || array_key_exists("rol", $context) ? $context["rol"] : (function () { throw new RuntimeError('Variable "rol" does not exist.', 16, $this->source); })())) {
+        if (0 === twig_compare((isset($context["rol"]) || array_key_exists("rol", $context) ? $context["rol"] : (function () { throw new RuntimeError('Variable "rol" does not exist.', 16, $this->source); })()), 0)) {
             // line 17
             echo "                <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
                 ";
@@ -139,14 +134,14 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
 
     public function getDebugInfo()
     {
-        return array (  97 => 38,  90 => 34,  75 => 21,  71 => 19,  67 => 17,  65 => 16,  47 => 3,  43 => 1,);
+        return array (  92 => 38,  85 => 34,  70 => 21,  66 => 19,  62 => 17,  60 => 16,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA {{var}} {{se}}</a></p>
+\t\t<p id=\"nameMail\"><a href=\"/main\">DISCORDIA</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
         <div class=\"leftSide\">
@@ -159,7 +154,7 @@ class __TwigTemplate_f55a2d35bf0906984bd7278d5c694e7aa0c7fc433c85081531c5174b176
             <div class=\"menu\">
                 <button class=\"tab\" onclick=\"showContacts()\">Messages</button>
                 
-                {% if rol%}
+                {% if rol == 0 %}
                 <button class=\"tab\" onclick=\"showFriends()\">Friends</button>
                 {% else %}
                 <button class=\"tab\" onclick=\"showAllUsers()\">All Users</button>

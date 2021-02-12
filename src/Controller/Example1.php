@@ -15,7 +15,7 @@ use App\Entity\User;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\EntityManagerInterface;
 
-/*#
+/**
 * @IsGranted("ROLE_USER")
 */
 

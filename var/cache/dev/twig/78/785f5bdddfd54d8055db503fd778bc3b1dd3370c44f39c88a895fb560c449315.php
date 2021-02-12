@@ -57,17 +57,8 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
         echo "
     </head>
     <body>
-";
-        // line 19
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 19, $this->source); })())) {
-            // line 20
-            echo "    <div>";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 20, $this->source); })()), "messageKey", [], "any", false, false, false, 20), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 20, $this->source); })()), "messageData", [], "any", false, false, false, 20), "security"), "html", null, true);
-            echo "</div>
-";
-        }
-        // line 22
-        echo "
+
+
 <div id=\"login\">
     <div class=\"containerLog\" >
         <a class=\"linkT\" href=\"https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PLahKLy8pQdCM0SiXNn3EfGIXX19QGzUG3\">
@@ -76,16 +67,16 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form onsubmit = \"";
-        // line 31
+\t\t<form action=\"";
+        // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\">
+        echo "\" method=\"post\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>
-                <input id=\"user\" type=\"text\" placeholder=\"Enter Username or E-mail\" name=\"user\" value = \"";
-        // line 35
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 35, $this->source); })()), "html", null, true);
+                <input id=\"user\" type=\"text\" placeholder=\"Enter Username or E-mail\" name=\"_username\" value = \"";
+        // line 33
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 33, $this->source); })()), "html", null, true);
         echo "\">
 
                 <label for=\"password\"><b>Password</b></label>
@@ -98,6 +89,17 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
         </form>
 
+        ";
+        // line 45
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 45, $this->source); })())) {
+            // line 46
+            echo "            <div>";
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 46, $this->source); })()), "messageKey", [], "any", false, false, false, 46), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 46, $this->source); })()), "messageData", [], "any", false, false, false, 46), "security"), "html", null, true);
+            echo "</div>
+        ";
+        }
+        // line 48
+        echo "
     </div>
     </div>
 
@@ -191,7 +193,7 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
     public function getDebugInfo()
     {
-        return array (  170 => 14,  160 => 13,  148 => 10,  144 => 9,  140 => 8,  136 => 7,  132 => 6,  127 => 5,  117 => 4,  88 => 35,  81 => 31,  70 => 22,  64 => 20,  62 => 19,  57 => 16,  55 => 13,  52 => 12,  50 => 4,  45 => 1,);
+        return array (  172 => 14,  162 => 13,  150 => 10,  146 => 9,  142 => 8,  138 => 7,  134 => 6,  129 => 5,  119 => 4,  102 => 48,  96 => 46,  94 => 45,  79 => 33,  72 => 29,  57 => 16,  55 => 13,  52 => 12,  50 => 4,  45 => 1,);
     }
 
     public function getSourceContext()
@@ -214,9 +216,7 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
     </head>
     <body>
-{% if error %}
-    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-{% endif %}
+
 
 <div id=\"login\">
     <div class=\"containerLog\" >
@@ -226,11 +226,11 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form onsubmit = \"{{ path('login') }}\">
+\t\t<form action=\"{{ path('login') }}\" method=\"post\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>
-                <input id=\"user\" type=\"text\" placeholder=\"Enter Username or E-mail\" name=\"user\" value = \"{{ last_username }}\">
+                <input id=\"user\" type=\"text\" placeholder=\"Enter Username or E-mail\" name=\"_username\" value = \"{{ last_username }}\">
 
                 <label for=\"password\"><b>Password</b></label>
                 <input id=\"password\" type=\"password\" placeholder=\"Enter Password\" name=\"_password\" required>
@@ -241,6 +241,10 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
             </div>
 
         </form>
+
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
 
     </div>
     </div>

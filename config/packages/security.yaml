@@ -14,11 +14,11 @@ security:
     providers:
          example:
              entity:
-                 class: App\Entity\Users
-                 property: username
+                 class: App\Entity\User
+                 property: nick
     encoders:
          App\Entity\Users:
-          algorithm: bcrypt #plaintext
+          algorithm: plaintext #bcrypt 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -43,4 +43,4 @@ security:
     access_control:
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/formHello, roles: ROLE_USER }
-        - { path: /showTeam, roles: ROLE_USER }
+        # - { path: /showTeam, roles: ROLE_USER }

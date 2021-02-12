@@ -5,6 +5,8 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\ORM\EntityRepository;
 
 /**
  * User
@@ -288,6 +290,22 @@ class User
         }
 
         return $this;
+    }
+
+
+    public function getUsername(){
+		return $this->nick;
+	}
+
+    public function getPassword(){
+		return $this->password_hash;
+	}
+	public function getRoles()  {
+        if ($this->role==0) {
+            return ['ROLE_USER'];
+        } else {
+            return ['ROLE_USER', 'ROLE_ADMIN'];
+        }
     }
 
 }
