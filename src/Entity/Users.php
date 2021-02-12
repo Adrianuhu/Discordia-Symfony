@@ -15,7 +15,7 @@ class Users implements UserInterface{
 	*/
 	private $cod;
 	/** @ORM\Column(type="string")*/
-	private $username;
+	private $usernick;
 	/** @ORM\Column(type="string")*/	
 	private $password;
 	/** @ORM\Column(type="integer")*/
@@ -27,7 +27,7 @@ class Users implements UserInterface{
 		return $this->cod;
 	}
 	public function getUsername(){
-		return $this->username;
+		return $this->usernick;
 	}
 	public function getPassword(){
 		return $this->password;

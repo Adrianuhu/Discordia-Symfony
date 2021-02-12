@@ -15,7 +15,7 @@ security:
          example:
              entity:
                  class: App\Entity\Users
-                 property: username
+                 property: usernick
     encoders:
          App\Entity\Users:
           algorithm: plaintext

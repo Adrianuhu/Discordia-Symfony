@@ -18,7 +18,7 @@ class ExampleForms extends AbstractController
 {
 	/**
 	* @Route("/formHello", name = "formHello")
-	* @IsGranted("ROLE_ADMIN")
+	* @IsGranted("ROLE_USER")
 	*/
 	
 	public function formHello(Request $request)
