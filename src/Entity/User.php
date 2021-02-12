@@ -14,7 +14,7 @@ use Doctrine\ORM\EntityRepository;
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="mail", columns={"mail"}), @ORM\UniqueConstraint(name="nick", columns={"nick"})}, indexes={@ORM\Index(name="cod_user", columns={"cod_user"})})
  * @ORM\Entity
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var int
@@ -298,14 +298,21 @@ class User
 	}
 
     public function getPassword(){
-		return $this->password_hash;
+		return $this->passwordHash;
 	}
 	public function getRoles()  {
-        if ($this->role==0) {
+        if ($this->rol==0) {
             return ['ROLE_USER'];
         } else {
             return ['ROLE_USER', 'ROLE_ADMIN'];
         }
     }
+
+    public function getSalt(){
+		return null;
+	}
+	public function eraseCredentials(){
+		return null; 
+	}
 
 }

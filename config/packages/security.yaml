@@ -17,8 +17,8 @@ security:
                  class: App\Entity\User
                  property: nick
     encoders:
-         App\Entity\Users:
-          algorithm: plaintext #bcrypt 
+         App\Entity\User:
+          algorithm: bcrypt 
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/

@@ -46,9 +46,10 @@ class Example1 extends AbstractController{
      */
 	public function index(SessionInterface $session){
 		
-		$session->set('codUser', '30');
-		$session->set('rol', '0');
-		
+	
+		$session->set('codUser', $this->getUser()->getCodUser());
+		$session->set('rol', $this->getUser()->getRol());
+
 		return $this->render('index.html.twig');
     }
     /**

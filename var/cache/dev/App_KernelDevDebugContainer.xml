@@ -3937,10 +3937,13 @@
     </service>
     <service id="security.encoder_factory.generic" class="Symfony\Component\Security\Core\Encoder\EncoderFactory" public="false">
       <argument type="collection">
-        <argument key="App\Entity\Users" type="collection">
-          <argument key="class">Symfony\Component\Security\Core\Encoder\PlaintextPasswordEncoder</argument>
+        <argument key="App\Entity\User" type="collection">
+          <argument key="class">Symfony\Component\Security\Core\Encoder\NativePasswordEncoder</argument>
           <argument key="arguments" type="collection">
-            <argument>false</argument>
+            <argument>null</argument>
+            <argument>null</argument>
+            <argument>null</argument>
+            <argument>1</argument>
           </argument>
         </argument>
       </argument>
@@ -4529,7 +4532,7 @@
       <tag name="console.command" command="security:encode-password"/>
       <argument type="service" id="security.encoder_factory.generic"/>
       <argument type="collection">
-        <argument>App\Entity\Users</argument>
+        <argument>App\Entity\User</argument>
       </argument>
       <call method="setName">
         <argument>security:encode-password</argument>
