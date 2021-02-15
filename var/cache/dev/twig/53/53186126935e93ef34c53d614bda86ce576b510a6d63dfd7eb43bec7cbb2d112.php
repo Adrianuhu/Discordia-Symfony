@@ -42,7 +42,7 @@ class __TwigTemplate_6d47ac99d700515b8fb24682a578a45a7a1a498e1ea289566c927550cfa
         // line 1
         echo "
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA</a></p>
+\t\t<p id=\"nameMail\"><a href=\"/index\">DISCORDIA</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
         <div class=\"leftSide\">
@@ -141,7 +141,7 @@ class __TwigTemplate_6d47ac99d700515b8fb24682a578a45a7a1a498e1ea289566c927550cfa
     {
         return new Source("
 <div class=\"pantalla\">
-\t\t<p id=\"nameMail\"><a href=\"main.php\">DISCORDIA</a></p>
+\t\t<p id=\"nameMail\"><a href=\"/index\">DISCORDIA</a></p>
 \t\t\t<button onclick=\"logOut()\" class=\"logout\">Log out</button>
 \t\t
         <div class=\"leftSide\">

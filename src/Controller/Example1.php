@@ -15,29 +15,50 @@ use App\Entity\User;
 use Doctrine\ORM\Query\ResultSetMapping;
 use Doctrine\ORM\EntityManagerInterface;
 
+
+
 /**
-* @IsGranted("ROLE_USER")
-*/
+ * @IsGranted("ROLE_USER")
+ */
 
 class Example1 extends AbstractController{
+	public $entityManager;
 	/**
 	 * @Route("/test", name="test")
      */
 	public function test(){
-		
 		$entityManager = $this->getDoctrine()->getManager();
+		/*
 		
 		$cod = 30;
 		$nam = 'Sheev Frank';
         $query = $entityManager->createQuery(
-            'select u.nick from App\Entity\User u'
+            'select u from App\Entity\User u where u.codUser > 20'
 		);
 
 
 		$resul = $query->getResult();
 		$c = count($resul);
 		
-		return $this->render('plantilla.html.twig', array('friends'=> $resul, 'c'=> $c ) );
+		*/
+		$coduser = '26';
+		$query = $entityManager->createQuery(
+			// INSERT INTO `friend` (`userA`, `userB`, `status`, `code`) VALUES ('30', '38', '1', '30-38');
+			'insert into App\Entity\friend (`userA`, `userB`, `status`, `code`) VALUES ("30", "38", "1", "30-38")'
+			);
+			
+			
+			
+			$resul = $query->getResult();	
+			if (!$resul) {
+				return FALSE;
+			}
+			if (count($resul) === 0) {    
+				return FALSE;
+			}
+			
+			//return $resul;	
+			return $this->render('plantilla.html.twig', array('friends'=> $resul) );
     }
 
 
@@ -46,7 +67,6 @@ class Example1 extends AbstractController{
      */
 	public function index(SessionInterface $session){
 		
-	
 		$session->set('codUser', $this->getUser()->getCodUser());
 		$session->set('rol', $this->getUser()->getRol());
 
@@ -62,7 +82,8 @@ class Example1 extends AbstractController{
 		$cod  = $session->get('codUser');
 		$rol = $session->get('rol');
 		
-		$nameUser = load_name_user($cod)['nick'];
+		$entityManager = $this->getDoctrine()->getManager();
+		$nameUser = load_name_user($cod, $entityManager)->getNick();
 
 		return $this->render('main.html.twig', array('rol'=> $rol, 'nameUser' => $nameUser) );
 	}
@@ -132,8 +153,8 @@ class Example1 extends AbstractController{
 		public function profFriend(Request $request){
 			$cod=$request->get("codUser");
 	
-			
-			$currentData = load_name_user($cod);
+			$entityManager = $this->getDoctrine()->getManager();
+			$currentData = load_name_user($cod, $entityManager);
 			
 				return $this->render('profFriend.html.twig', array('currentData' => $currentData) );
 	
@@ -145,8 +166,8 @@ class Example1 extends AbstractController{
 		public function profile(SessionInterface $session){
 			$cod  = $session->get('codUser');
 	
-			
-			$currentData = load_name_user($cod);
+				$entityManager = $this->getDoctrine()->getManager();
+			$currentData = load_name_user($cod, $entityManager);
 			
 				return $this->render('profile.html.twig', array('currentData' => $currentData) );
 	
@@ -398,50 +419,24 @@ function load_config($name, $schema){
 }
 
 // return name from a coduser
-function load_name_user($coduser){
-	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new \PDO($res[0], $res[1], $res[2]);
-	$ins = "SELECT * FROM `user` 
-	WHERE cod_user like '$coduser'";
+function load_name_user($coduser, $entityManager){
+
+
+	$query = $entityManager->createQuery(
+		'select u from App\Entity\User u WHERE u.codUser like :coduser'
+	)->setParameter('coduser',  $coduser);
+
+
 	
-	$resul = $db->query($ins);	
+	$resul =  $query->getResult();	
 	if (!$resul) {
 		return FALSE;
 	}
-	if ($resul->rowCount() === 0) {    
+	if (count($resul) === 0) {    
 		return FALSE;
 	}
 	
-    $r = $resul->fetch();
-	return $r;	
-}
-
-// check the nick and password from a user
-function check_user($nick, $password){
-	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new \PDO($res[0], $res[1], $res[2]);
-	$ins = "select cod_user, rol from user where (nick = '$nick' or mail ='$nick')";
-	
-	
-	$resul = $db->query($ins);
-
-	if($resul->rowCount() === 1){	
-
-		$hash = "select password_hash from user where (nick = '$nick' or mail ='$nick')";
-		$hash_resul = $db->query($hash);
-		$pass = $hash_resul->fetch();
-		$pass_hash = $pass['password_hash'];
-
-		if(password_verify($password, $pass_hash)){		
-			return $resul->fetch();	
-		}else{
-			return FALSE;
-		}	
-
-	}else{
-	return FALSE;
-	}		
-
+	return $resul[0];	
 }
 
 // register a user

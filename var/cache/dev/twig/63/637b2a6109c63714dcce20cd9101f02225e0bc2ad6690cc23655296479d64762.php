@@ -41,7 +41,7 @@ class __TwigTemplate_85dc8b7b80f2019ff03e199ba62ee75ea07c230fb2174de9cfb31d9248e
 
         // line 1
         echo "
-";
+ ";
         // line 2
         $context['_parent'] = $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["friends"]) || array_key_exists("friends", $context) ? $context["friends"] : (function () { throw new RuntimeError('Variable "friends" does not exist.', 2, $this->source); })()));
@@ -56,13 +56,11 @@ class __TwigTemplate_85dc8b7b80f2019ff03e199ba62ee75ea07c230fb2174de9cfb31d9248e
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['friend'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 6
-        echo "asdfasfasfd
+        // line 5
+        echo " 
 ";
-        // line 7
-        echo twig_escape_filter($this->env, (isset($context["c"]) || array_key_exists("c", $context) ? $context["c"] : (function () { throw new RuntimeError('Variable "c" does not exist.', 7, $this->source); })()), "html", null, true);
+        // line 8
         echo "
-
 
 ";
         
@@ -85,18 +83,18 @@ class __TwigTemplate_85dc8b7b80f2019ff03e199ba62ee75ea07c230fb2174de9cfb31d9248e
 
     public function getDebugInfo()
     {
-        return array (  63 => 7,  60 => 6,  50 => 3,  46 => 2,  43 => 1,);
+        return array (  63 => 8,  60 => 5,  50 => 3,  46 => 2,  43 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("
-{%for friend in friends %}
+ {%for friend in friends %}
 \t      {{friend.nick}}         
                 
-{% endfor %}
-asdfasfasfd
-{{c}}
+{% endfor %} 
+{# 
+{{friends}} #}
 
 
 {# 
