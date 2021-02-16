@@ -190,8 +190,9 @@ class Example1 extends AbstractController{
 
 			$user=$request->get("user");
 			$text=$request->get("text");
-			
-			send_Message($cod, $user, $text);
+
+			$entityManager = $this->getDoctrine()->getManager();
+			send_Message($cod, $user, $text, $entityManager);
 		
 				return $this->render('index.html.twig');
 	
@@ -319,7 +320,9 @@ class Example1 extends AbstractController{
 			$user=$request->get("user");
 			$text=$request->get("text");
 			
-			send_Message($cod, $user, $text);
+			$entityManager = $this->getDoctrine()->getManager();
+			send_Message($cod, $user, $text, $entityManager);
+			
 
 				return $this->render('index.html.twig');
 	
@@ -333,7 +336,8 @@ class Example1 extends AbstractController{
 			$user=$request->get("user");
 			$text=$request->get("text");
 			
-			send_Message($cod, $user, $text);
+			$entityManager = $this->getDoctrine()->getManager();
+			send_Message($cod, $user, $text, $entityManager);
     
 				return $this->render('index.html.twig');
 	
@@ -463,7 +467,7 @@ function register_user($name, $surname, $nick, $email, $password, $gender){
 
 
 // insert a new message into the chat, if the chat not exits it is created
-function send_Message($myUser, $toUser, $message){
+function send_Message($myUser, $toUser, $message, $entityManager){
 
 		$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 	$db = new \PDO($res[0], $res[1], $res[2]);

@@ -2969,3 +2969,5 @@ fe4d8f,::1,GET,http://localhost:8000/index,1613411128,,200
 055bcd,::1,POST,http://localhost:8000/main,1613411129,,200
 5a6e1d,::1,GET,http://localhost:8000/test,1613411730,1584a6,500
 1584a6,::1,GET,http://localhost:8000/test,1613411730,,500
+9e0150,::1,POST,http://localhost:8000/send_message_newMessage_AJAX,1613501650,,200
+d56a49,::1,POST,http://localhost:8000/contacts,1613501651,,200
