@@ -83,7 +83,7 @@ class __TwigTemplate_f1203f1304ff59ac191608b6d3d5c3df13f9619a818813f7108b93010fc
                 <input id=\"password\" type=\"password\" placeholder=\"Enter Password\" name=\"_password\" required>
 
                 <button class=\"btn\" type=\"submit\">Login</button>
-                <button class=\"singIn\" onclick=\"window.location.href='register.php';\">Sing in</button>
+                <button class=\"singIn\" onclick=\"window.location.href='register';\">Sing in</button>
 \t\t\t\t
             </div>
 
@@ -236,7 +236,7 @@ class __TwigTemplate_f1203f1304ff59ac191608b6d3d5c3df13f9619a818813f7108b93010fc
                 <input id=\"password\" type=\"password\" placeholder=\"Enter Password\" name=\"_password\" required>
 
                 <button class=\"btn\" type=\"submit\">Login</button>
-                <button class=\"singIn\" onclick=\"window.location.href='register.php';\">Sing in</button>
+                <button class=\"singIn\" onclick=\"window.location.href='register';\">Sing in</button>
 \t\t\t\t
             </div>
 

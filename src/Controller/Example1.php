@@ -17,7 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
 
-/**
+/*#
  * @IsGranted("ROLE_USER")
  */
 
@@ -395,6 +395,16 @@ class Example1 extends AbstractController{
 			// updateProf($name, $surname, $description, $nick.".jpg");
     
 				return new Response('<html><body>aaa'.$file['myfile'].'</body></html>');
+	
+		}
+		/**
+		 * @Route("/register", name="register")
+		 */
+		
+		public function register(SessionInterface $session, Request $request){
+			
+			
+			return $this->render('register.html.twig');
 	
 		}
 }
