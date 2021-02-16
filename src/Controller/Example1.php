@@ -418,7 +418,7 @@ function load_config($name, $schema){
 	return $result;
 }
 
-// return name from a coduser
+// return name from a coduser DOC
 function load_name_user($coduser, $entityManager){
 
 
