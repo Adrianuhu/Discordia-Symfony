@@ -36,6 +36,7 @@ return [
         '/upload_files' => [[['_route' => 'upload_files', '_controller' => 'App\\Controller\\Example1::upload_files'], null, null, null, false, false, null]],
         '/uploadProfile' => [[['_route' => 'uploadProfile', '_controller' => 'App\\Controller\\Example1::uploadProfile'], null, null, null, false, false, null]],
         '/register' => [[['_route' => 'register', '_controller' => 'App\\Controller\\Example1::register'], null, null, null, false, false, null]],
+        '/myprofile' => [[['_route' => 'myprofile', '_controller' => 'App\\Controller\\Example1::myProfile'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],

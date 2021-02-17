@@ -17,7 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
 
-/*#
+/**
  * @IsGranted("ROLE_USER")
  */
 
@@ -353,22 +353,25 @@ class Example1 extends AbstractController{
 			$cod  = $session->get('codUser');
 
 			/* Get the name of the uploaded file */
-			$filename = $_FILES['file']['name'];
-			$tmp = $_FILES['file']['tmp_name'];
+		
+			$file = $request->files->get('file');
+
+            $filepath= $file->getPathName();
+            $filename = $file->getClientOriginalName();
 
 			//$filename = $_POST['code_room'];
 
 			/* Choose where to save the uploaded file */
-			$location = "../files/".$filename;
+			$location = "./files/".$filename;
 
 			/* Save the uploaded file to the local filesystem */
-			if ( move_uploaded_file($tmp, $location) ) { 
+			if ( move_uploaded_file($filepath, $location) ) { 
 			echo 'Success'; 
 			} else { 
 			echo 'Failure'; 
 			}
 
-			send_chat_Message( $code_my_usr, $code_room, "http://localhost/Operacion-Discordia/files/".$filename);
+			send_chat_Message( $code_my_usr, $code_room, "http://localhost:8000/files/".$filename);
 			setNotView($codRoom, $cod);
 
     
@@ -380,21 +383,28 @@ class Example1 extends AbstractController{
 		 */
 		
 		public function uploadProfile(SessionInterface $session, Request $request){
+			$cod  = $session->get('codUser');
+
 			$nick=$request->get("nick");
 			$name=$request->get("name");
 			$surname=$request->get("surname");
 			$description=$request->get("description");
 		
-			$file = $request->request->all();
+			$file = $request->files->get('myfile');
+
+            $filepath= $file->getPathName();
+            $filename = $file->getClientOriginalName();
+
 
 			// $filename = $_FILES['file']['name'];
 			// $tmp = $_FILES['myfile']['tmp_name'];
 
-			// $res = move_uploaded_file($tmp,"../images/avatar/".$nick.".jpg");
+			$res = move_uploaded_file($filepath,"./images/avatar/".$nick.".jpg");
 
-			// updateProf($name, $surname, $description, $nick.".jpg");
+			 updateProf($cod, $name, $surname, $description, $nick.".jpg");
     
-				return new Response('<html><body>aaa'.$file['myfile'].'</body></html>');
+			return $this->render('index.html.twig');
+				// return new Response('<html><body>aaa'.$filename.'</body></html>');
 	
 		}
 		/**
@@ -407,6 +417,13 @@ class Example1 extends AbstractController{
 			return $this->render('register.html.twig');
 	
 		}
+
+
+		
+    /**
+     * @Route("/myprofile", name="myprofile")
+     */
+   
 }
 		
 		
@@ -745,8 +762,8 @@ function setView($codRoom, $codUser)
 
 
 // function to update user's profiles
-function updateProf($name, $surname, $description, $photo){
-	$myUser = $_SESSION['user']['cod_user'];
+function updateProf($cod, $name, $surname, $description, $photo){
+	$myUser = $cod;
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 
 	$db = new \PDO($res[0], $res[1], $res[2]);
