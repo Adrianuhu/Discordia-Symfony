@@ -37,8 +37,8 @@ return [
     'send' => [[], ['_controller' => 'App\\Controller\\Example1::send'], [], [['text', '/send']], [], []],
     'upload_files' => [[], ['_controller' => 'App\\Controller\\Example1::upload_files'], [], [['text', '/upload_files']], [], []],
     'uploadProfile' => [[], ['_controller' => 'App\\Controller\\Example1::uploadProfile'], [], [['text', '/uploadProfile']], [], []],
-    'register' => [[], ['_controller' => 'App\\Controller\\Example1::register'], [], [['text', '/register']], [], []],
-    'myprofile' => [[], ['_controller' => 'App\\Controller\\Example1::myProfile'], [], [['text', '/myprofile']], [], []],
+    'register' => [[], ['_controller' => 'App\\Controller\\Example2::register'], [], [['text', '/register']], [], []],
+    'registerU' => [[], ['_controller' => 'App\\Controller\\Example2::registerU'], [], [['text', '/registerU']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

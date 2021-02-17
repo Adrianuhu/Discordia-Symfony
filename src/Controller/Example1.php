@@ -17,6 +17,7 @@ use Doctrine\ORM\EntityManagerInterface;
 
 
 
+
 /**
  * @IsGranted("ROLE_USER")
  */
@@ -470,27 +471,6 @@ function load_name_user($coduser, $entityManager){
 	return $resul[0];	
 }
 
-// register a user
-function register_user($name, $surname, $nick, $email, $password, $gender){
-	
-        $res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-		$db = new \PDO($res[0], $res[1], $res[2]);
-
-		$password_hash = password_hash($password, PASSWORD_DEFAULT);
-
-		$ins = "INSERT INTO `user` 
-		(`cod_user`, `name`, `surname`, `nick`, `mail`, `photo`, `password_hash`, `description`, `gender`, `rol`) VALUES 
-		(NULL, '$name', '$surname', '$nick', '$email', 'default.png', '$password_hash', '', '$gender',0)";
-
-		$resul = $db->query($ins);
-		
-		if (!$resul) {
-			return FALSE;
-		}
-		
-		return $resul;
-
-}
 
 
 // insert a new message into the chat, if the chat not exits it is created

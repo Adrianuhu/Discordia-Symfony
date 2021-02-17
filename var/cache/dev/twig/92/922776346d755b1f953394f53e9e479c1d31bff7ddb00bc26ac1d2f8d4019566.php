@@ -67,10 +67,10 @@ class __TwigTemplate_f1203f1304ff59ac191608b6d3d5c3df13f9619a818813f7108b93010fc
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form action=\"";
+        <form action=\"";
         // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\" method=\"post\">
+        echo "\" method=\"post\" enctype=\"multipart/form-data\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>
@@ -226,7 +226,7 @@ class __TwigTemplate_f1203f1304ff59ac191608b6d3d5c3df13f9619a818813f7108b93010fc
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form action=\"{{ path('login') }}\" method=\"post\">
+        <form action=\"{{ path('login') }}\" method=\"post\" enctype=\"multipart/form-data\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>

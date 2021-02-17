@@ -51,7 +51,10 @@ class __TwigTemplate_3b3742dd596c8d87d7c2063077bdae00df892889ad1c1b44bc5a1b3d87b
 
 <body>
 
-\t<form action=\"<?php echo htmlspecialchars(\$_SERVER[\"PHP_SELF\"]);?>\" method=\"post\">
+\t<form action=\"";
+        // line 12
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("registerU");
+        echo "\" method=\"post\">
 \t
 \t\t<div class=\"container\">
         <label for=\"name\"><b>Name</b></label>
@@ -98,9 +101,14 @@ class __TwigTemplate_3b3742dd596c8d87d7c2063077bdae00df892889ad1c1b44bc5a1b3d87b
         return "register.html.twig";
     }
 
+    public function isTraitable()
+    {
+        return false;
+    }
+
     public function getDebugInfo()
     {
-        return array (  43 => 1,);
+        return array (  56 => 12,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -116,7 +124,7 @@ class __TwigTemplate_3b3742dd596c8d87d7c2063077bdae00df892889ad1c1b44bc5a1b3d87b
 
 <body>
 
-\t<form action=\"<?php echo htmlspecialchars(\$_SERVER[\"PHP_SELF\"]);?>\" method=\"post\">
+\t<form action=\"{{ path('registerU') }}\" method=\"post\">
 \t
 \t\t<div class=\"container\">
         <label for=\"name\"><b>Name</b></label>
