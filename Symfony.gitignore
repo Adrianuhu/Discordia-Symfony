@@ -1,0 +1,52 @@
+# Cache and logs (Symfony2)
+appcache
+applogs
+!appcache.gitkeep
+!applogs.gitkeep
+
+# Email spool folder
+appspool
+
+# Cache, session files and logs (Symfony3)
+varcache
+varlogs
+varsessions
+!varcache.gitkeep
+!varlogs.gitkeep
+!varsessions.gitkeep
+
+# Logs (Symfony4)
+varlog
+!varlog.gitkeep
+
+# Parameters
+appconfigparameters.yml
+appconfigparameters.ini
+
+# Managed by Composer
+appbootstrap.php.cache
+varbootstrap.php.cache
+bin
+!binconsole
+!binsymfony_requirements
+vendor
+
+# Assets and user uploads
+webbundles
+webuploads
+
+# PHPUnit
+appphpunit.xml
+phpunit.xml
+
+# Build data
+build
+
+# Composer PHAR
+composer.phar
+
+# Backup entities generated with doctrinegenerateentities command
+Entity~
+
+# Embedded web-server pid file
+.web-server-pid
