@@ -36,7 +36,10 @@ class Example2 extends AbstractController{
 		$email=$request->get("email");
 		$password=$request->get("password");
 		$gender=$request->get("gender");
-		register_user($name, $surname, $nick, $email, $password, $gender);
+
+		
+		$entityManager = $this->getDoctrine()->getManager();
+		register_user($name, $surname, $nick, $email, $password, $gender, $entityManager);
 
 		return $this->render('index.html.twig');
     }
@@ -44,25 +47,25 @@ class Example2 extends AbstractController{
 
 
 // register a user
-function register_user($name, $surname, $nick, $email, $password, $gender){
+function register_user($name, $surname, $nick, $email, $password, $gender, $entityManager){
 	
-	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
-	$db = new \PDO($res[0], $res[1], $res[2]);
-
 	$password_hash = password_hash($password, PASSWORD_DEFAULT);
 
-	$ins = "INSERT INTO `user` 
-	(`cod_user`, `name`, `surname`, `nick`, `mail`, `photo`, `password_hash`, `description`, `gender`, `rol`) VALUES 
-	(NULL, '$name', '$surname', '$nick', '$email', 'default.png', '$password_hash', '', '$gender',0)";
+	$new = new User();
+	$new->setName($name);
+	$new->setSurname($surname);
+	$new->setNick($nick);
+	$new->setMail($email);
+	$new->setPhoto('default.png');
+	$new->setPasswordHash($password_hash);
+	$new->setDescription('');
+	$new->setGender($gender);
+	$new->setRol(0);
 
-	$resul = $db->query($ins);
+	$entityManager->persist($new);
+	$entityManager->flush();
 	
-	if (!$resul) {
-		return FALSE;
-	}
 	
-	return $resul;
-
 }
 
 
