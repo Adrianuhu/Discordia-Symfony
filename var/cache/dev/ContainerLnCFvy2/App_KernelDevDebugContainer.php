@@ -1,6 +1,7 @@
 <?php
 
-namespace ContainerVoeppwe;
+namespace ContainerLnCFvy2;
+
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -492,7 +493,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AppService()
     {
-        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('8vFXivJ22+', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
+        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('39CcUVodYj', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
         $a->setLogger(($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService()));
 
         return $this->services['cache.app'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter($a);
@@ -561,7 +562,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('-bSJE+8Jhr', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('TSHBEqubXb', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1676,13 +1677,27 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.563_Q7X' shared service.
+     * Gets the private '.service_locator.AtFHPRi' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
      */
-    protected function get_ServiceLocator_563Q7XService()
+    protected function get_ServiceLocator_AtFHPRiService()
     {
-        return $this->privates['.service_locator.563_Q7X'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+        return $this->privates['.service_locator.AtFHPRi'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'session' => ['services', 'session', 'getSessionService', false],
+        ], [
+            'session' => '?',
+        ]);
+    }
+
+    /**
+     * Gets the private '.service_locator.BZk45Tq' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_BZk45TqService()
+    {
+        return $this->privates['.service_locator.BZk45Tq'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
             'App\\Controller\\Example1::acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1::allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1::chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
@@ -1701,6 +1716,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\Example1::send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1::uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1::upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example2::registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
             'App\\Controller\\Example1:acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1:allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
@@ -1720,6 +1736,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\Example1:send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1:uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\Example1:upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\Example2:registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
             'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
         ], [
             'App\\Controller\\Example1::acceptFriend' => '?',
@@ -1740,6 +1757,7 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\Example1::send_message_newMessage_AJAX' => '?',
             'App\\Controller\\Example1::uploadProfile' => '?',
             'App\\Controller\\Example1::upload_files' => '?',
+            'App\\Controller\\Example2::registerU' => '?',
             'App\\Controller\\SecurityController::login' => '?',
             'App\\Controller\\Example1:acceptFriend' => '?',
             'App\\Controller\\Example1:allUser' => '?',
@@ -1759,21 +1777,8 @@ class App_KernelDevDebugContainer extends Container
             'App\\Controller\\Example1:send_message_newMessage_AJAX' => '?',
             'App\\Controller\\Example1:uploadProfile' => '?',
             'App\\Controller\\Example1:upload_files' => '?',
+            'App\\Controller\\Example2:registerU' => '?',
             'App\\Controller\\SecurityController:login' => '?',
-        ]);
-    }
-
-    /**
-     * Gets the private '.service_locator.AtFHPRi' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_AtFHPRiService()
-    {
-        return $this->privates['.service_locator.AtFHPRi'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'session' => ['services', 'session', 'getSessionService', false],
-        ], [
-            'session' => '?',
         ]);
     }
 
@@ -1888,7 +1893,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('pLT59uozX5', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('q8IULaDI14', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1898,7 +1903,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_PropertyInfoService()
     {
-        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('fmE5nbvaPI', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ylLSR5uwrh', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1908,7 +1913,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SecurityExpressionLanguageService()
     {
-        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ldoPU5-8gC', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('Hg78ENGA0V', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1918,7 +1923,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SerializerService()
     {
-        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ZOtTpBquYq', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('rRvCZH6-SU', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1928,7 +1933,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_ValidatorService()
     {
-        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('evcTL4sQnv', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('Ih5O9XG573', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -2541,7 +2546,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.563_Q7X'] ?? $this->get_ServiceLocator_563Q7XService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.BZk45Tq'] ?? $this->get_ServiceLocator_BZk45TqService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2583,7 +2588,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.563_Q7X'] ?? $this->get_ServiceLocator_563Q7XService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.BZk45Tq'] ?? $this->get_ServiceLocator_BZk45TqService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -4493,7 +4498,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-core\\Encoder\\EncoderFactoryInterface.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-core\\Encoder\\EncoderFactory.php';
 
-        return $this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(['App\\Entity\\User' => ['class' => 'Symfony\\Component\\Security\\Core\\Encoder\\NativePasswordEncoder', 'arguments' => [0 => NULL, 1 => NULL, 2 => NULL, 3 => '2y']]]);
+        return $this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(['App\\Entity\\User' => ['class' => 'Symfony\\Component\\Security\\Core\\Encoder\\NativePasswordEncoder', 'arguments' => [0 => NULL, 1 => NULL, 2 => NULL, 3 => 1]]]);
     }
 
     /**

@@ -67,10 +67,10 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form action=\"";
+        <form action=\"";
         // line 29
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
-        echo "\" method=\"post\">
+        echo "\" method=\"post\" enctype=\"multipart/form-data\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>
@@ -83,7 +83,7 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
                 <input id=\"password\" type=\"password\" placeholder=\"Enter Password\" name=\"_password\" required>
 
                 <button class=\"btn\" type=\"submit\">Login</button>
-                <button class=\"singIn\" onclick=\"window.location.href='register.php';\">Sing in</button>
+                <button class=\"singIn\" onclick=\"window.location.href='register';\">Sing in</button>
 \t\t\t\t
             </div>
 
@@ -226,7 +226,7 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
 
         <div class=\"companyNameLog\"> DISCORDIA</div>
 
-\t\t<form action=\"{{ path('login') }}\" method=\"post\">
+        <form action=\"{{ path('login') }}\" method=\"post\" enctype=\"multipart/form-data\">
 \t\t
             <div class=\"log\">
                 <label for=\"user\"><b>Username or E-mail</b></label>
@@ -236,7 +236,7 @@ class __TwigTemplate_087f89358ec22eaa4dc3ca37a54335d4c6f85691fb9707060e0cd35e237
                 <input id=\"password\" type=\"password\" placeholder=\"Enter Password\" name=\"_password\" required>
 
                 <button class=\"btn\" type=\"submit\">Login</button>
-                <button class=\"singIn\" onclick=\"window.location.href='register.php';\">Sing in</button>
+                <button class=\"singIn\" onclick=\"window.location.href='register';\">Sing in</button>
 \t\t\t\t
             </div>
 

@@ -392,15 +392,17 @@ class Example1 extends AbstractController{
 			$description=$request->get("description");
 		
 			$file = $request->files->get('myfile');
+			if ($file) {
+				$filepath= $file->getPathName();
+				$filename = $file->getClientOriginalName();
+				$res = move_uploaded_file($filepath,"./images/avatar/".$nick.".jpg");
+			}
 
-            $filepath= $file->getPathName();
-            $filename = $file->getClientOriginalName();
-
+           
 
 			// $filename = $_FILES['file']['name'];
 			// $tmp = $_FILES['myfile']['tmp_name'];
 
-			$res = move_uploaded_file($filepath,"./images/avatar/".$nick.".jpg");
 
 			 updateProf($cod, $name, $surname, $description, $nick.".jpg");
     
