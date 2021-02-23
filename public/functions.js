@@ -367,4 +367,18 @@ function logOut() {
     return false;
 }
 
+// function to delete User
+function deleteUser(codUser) {
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        showAllUsers();
+    };
+
+    xhttp.open("POST", "delteUser", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("codUser=" + codUser);
+    return false;
+}
+
 window.onload = load_Main;

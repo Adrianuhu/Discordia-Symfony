@@ -86,6 +86,11 @@ class __TwigTemplate_7173862803d553d777e7736a54dd6ee502880c53263961ec85cb851e3a4
                     </button>
 
                 </div>
+
+                 <button onclick=\"deleteUser(";
+                // line 22
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["ro"], "cod_user", [], "any", false, false, false, 22), "html", null, true);
+                echo ")\" method = \"POST\">Delete</button>
              
                   
             ";
@@ -93,11 +98,11 @@ class __TwigTemplate_7173862803d553d777e7736a54dd6ee502880c53263961ec85cb851e3a4
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ro'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 24
+            // line 26
             echo "
         ";
         }
-        // line 26
+        // line 28
         echo "                    ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -119,7 +124,7 @@ class __TwigTemplate_7173862803d553d777e7736a54dd6ee502880c53263961ec85cb851e3a4
 
     public function getDebugInfo()
     {
-        return array (  101 => 26,  97 => 24,  84 => 17,  80 => 16,  75 => 14,  71 => 13,  65 => 10,  56 => 6,  53 => 5,  47 => 3,  43 => 1,);
+        return array (  106 => 28,  102 => 26,  92 => 22,  84 => 17,  80 => 16,  75 => 14,  71 => 13,  65 => 10,  56 => 6,  53 => 5,  47 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
@@ -144,6 +149,8 @@ class __TwigTemplate_7173862803d553d777e7736a54dd6ee502880c53263961ec85cb851e3a4
                     </button>
 
                 </div>
+
+                 <button onclick=\"deleteUser({{ro.cod_user}})\" method = \"POST\">Delete</button>
              
                   
             {% endfor %}

@@ -394,6 +394,21 @@ class Example1 extends AbstractController{
 			return $this->render('register.html.twig');
 	
 		}
+		/**
+		 * @Route("/delteUser", name="delteUser")
+		 */
+		
+		public function delteUser(SessionInterface $session, Request $request){
+			
+			$codUser=$request->get("codUser");
+			$entityManager = $this->getDoctrine()->getManager();
+			$user = $entityManager->find(User::class, $codUser);
+	
+
+			$entityManager->remove($user);
+			$entityManager->flush();
+			return $this->render('index.html.twig');
+		}
 
 
 		
