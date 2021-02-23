@@ -29,37 +29,10 @@ class Example1 extends AbstractController{
      */
 	public function test(){
 		$entityManager = $this->getDoctrine()->getManager();
-		/*
 		
-		$cod = 30;
-		$nam = 'Sheev Frank';
-        $query = $entityManager->createQuery(
-            'select u from App\Entity\User u where u.codUser > 20'
-		);
+		$use = $entityManager->find(User::class, 42);
 
-
-		$resul = $query->getResult();
-		$c = count($resul);
-		
-		*/
-		$coduser = '26';
-		$query = $entityManager->createQuery(
-			// INSERT INTO `friend` (`userA`, `userB`, `status`, `code`) VALUES ('30', '38', '1', '30-38');
-			'insert into App\Entity\friend (`userA`, `userB`, `status`, `code`) VALUES ("30", "38", "1", "30-38")'
-			);
-			
-			
-			
-			$resul = $query->getResult();	
-			if (!$resul) {
-				return FALSE;
-			}
-			if (count($resul) === 0) {    
-				return FALSE;
-			}
-			
-			//return $resul;	
-			return $this->render('plantilla.html.twig', array('friends'=> $resul) );
+		return new Response('<html><body>'.$team->getName().'</body></html>');
     }
 
 
@@ -398,13 +371,14 @@ class Example1 extends AbstractController{
 				$res = move_uploaded_file($filepath,"./images/avatar/".$nick.".jpg");
 			}
 
+			$entityManager = $this->getDoctrine()->getManager();
            
 
 			// $filename = $_FILES['file']['name'];
 			// $tmp = $_FILES['myfile']['tmp_name'];
 
 
-			 updateProf($cod, $name, $surname, $description, $nick.".jpg");
+			 updateProf($cod, $name, $surname, $description, $nick.".jpg", $entityManager);
     
 			return $this->render('index.html.twig');
 				// return new Response('<html><body>aaa'.$filename.'</body></html>');
@@ -725,6 +699,9 @@ function setNotView($codRoom, $codUser)
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 	$db = new \PDO($res[0], $res[1], $res[2]);
 	
+	
+
+
 	$ins = "UPDATE user_room SET view='0' WHERE cod_room='$codRoom' and cod_user not like '$codUser' ";
 	
 	$result = $db->query($ins);
@@ -737,6 +714,8 @@ function setView($codRoom, $codUser)
 	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
 	$db = new \PDO($res[0], $res[1], $res[2]);
 
+
+	
 	$ins = "UPDATE user_room SET view='1' WHERE cod_room='$codRoom' and cod_user like '$codUser' ";
 	
 	$result = $db->query($ins);
@@ -744,24 +723,18 @@ function setView($codRoom, $codUser)
 
 
 // function to update user's profiles
-function updateProf($cod, $name, $surname, $description, $photo){
-	$myUser = $cod;
-	$res = load_config(dirname(__FILE__)."/configuration.xml", dirname(__FILE__)."/configuration.xsd");
+function updateProf($cod, $name, $surname, $description, $photo, $entityManager){
+	
+	$new = $entityManager->find(User::class, $cod);
+	
+	$new->setName($name);
+	$new->setSurname($surname);
+	$new->setPhoto($photo);
+	$new->setDescription($description);
 
-	$db = new \PDO($res[0], $res[1], $res[2]);
-	$ins = "UPDATE `user` SET `name`='$name',`surname`='$surname', `photo`='$photo', `description`='$description'
-	WHERE cod_user like'$myUser'"; 
+	$entityManager->persist($new);
+	$entityManager->flush();
 	
-	$resul = $db->query($ins);	
-	if (!$resul) {
-		return FALSE;
-	}
-	if ($resul->rowCount() === 0) {    
-		return FALSE;
-	}
-	
-    $r = $resul->fetch();
-	return $r;	
 }
 
 
