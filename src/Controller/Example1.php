@@ -449,6 +449,8 @@ function load_name_user($coduser, $entityManager){
 		'select u from App\Entity\User u WHERE u.codUser like :coduser'
 	)->setParameter('coduser',  $coduser);
 
+	
+
 
 	
 	$resul =  $query->getResult();	

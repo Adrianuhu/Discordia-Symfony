@@ -3567,3 +3567,8 @@ eb3c8e,::1,POST,http://localhost:8000/main,1614109431,,200
 49b89a,::1,POST,http://localhost:8000/allUser,1614109440,,200
 7238b3,::1,POST,http://localhost:8000/allUser,1614109441,,200
 f021b7,::1,POST,http://localhost:8000/allUser,1614109442,,200
+fd742d,::1,GET,http://localhost:8000/index,1614109594,,200
+06b73b,::1,GET,http://localhost:8000/main,1614109596,42ca69,500
+42ca69,::1,POST,http://localhost:8000/main,1614109596,,500
+84773c,::1,GET,http://localhost:8000/index,1614109612,,200
+1d763a,::1,POST,http://localhost:8000/main,1614109615,,200
