@@ -410,12 +410,6 @@ class Example1 extends AbstractController{
 			return $this->render('index.html.twig');
 		}
 
-
-		
-    /**
-     * @Route("/myprofile", name="myprofile")
-     */
-   
 }
 		
 		
