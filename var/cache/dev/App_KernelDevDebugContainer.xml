@@ -305,18 +305,11 @@
     <service id="EasyCorp\EasyLog\EasyLogHandler" class="EasyCorp\EasyLog\EasyLogHandler" public="false">
       <argument>C:\Users\Adrián\Discordia-Symfony\var\log/dev.log</argument>
     </service>
-    <service id="App\Controller\Example1" class="App\Controller\Example1" public="true" autowire="true" autoconfigure="true">
+    <service id="App\Controller\ChatMain" class="App\Controller\ChatMain" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Example1"/>
-      </call>
-    </service>
-    <service id="App\Controller\Example2" class="App\Controller\Example2" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
-      <tag name="container.service_subscriber"/>
-      <call method="setContainer">
-        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\Example2"/>
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\ChatMain"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
@@ -324,6 +317,13 @@
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
         <argument type="service" id=".service_locator.pNNo5z3.App\Controller\SecurityController"/>
+      </call>
+    </service>
+    <service id="App\Controller\UserRegister" class="App\Controller\UserRegister" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.pNNo5z3.App\Controller\UserRegister"/>
       </call>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory" public="false"/>
@@ -4659,15 +4659,15 @@
       <tag name="maker.command"/>
       <argument>C:\Users\Adrián\Discordia-Symfony</argument>
     </service>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Example1" class="App\Controller\Example1" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Example1" class="App\Controller\Example1" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Example1" class="App\Controller\Example1" autowire="true" autoconfigure="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Example2" class="App\Controller\Example2" autowire="true" abstract="true"/>
-    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Example2" class="App\Controller\Example2" autowire="true" abstract="true"/>
-    <service id=".abstract.instanceof.App\Controller\Example2" class="App\Controller\Example2" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\ChatMain" class="App\Controller\ChatMain" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\ChatMain" class="App\Controller\ChatMain" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\ChatMain" class="App\Controller\ChatMain" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\SecurityController" class="App\Controller\SecurityController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\UserRegister" class="App\Controller\UserRegister" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\UserRegister" class="App\Controller\UserRegister" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\UserRegister" class="App\Controller\UserRegister" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".service_locator.CmORmuK" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -4863,51 +4863,51 @@
         <argument key="authenticationUtils" type="service" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.6Nv7A64" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.skA5NOC" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="App\Controller\Example1::acceptFriend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::allUser" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::chat_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::contacts" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::createNewGroup" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::delteUser" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::denyFriend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::friend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::index" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::main" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::profile" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::register" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::request_friend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::send" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::sendFriendship" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::send_message_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::send_message_newMessage_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::uploadProfile" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1::upload_files" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example2::registerU" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::acceptFriend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::allUser" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::chat_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::contacts" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::createNewGroup" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::delteUser" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::denyFriend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::friend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::index" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::main" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::profile" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::register" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::request_friend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::send" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::sendFriendship" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::send_message_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::send_message_newMessage_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::uploadProfile" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain::upload_files" type="service" id=".service_locator.AtFHPRi"/>
         <argument key="App\Controller\SecurityController::login" type="service" id=".service_locator.q6jLs_L"/>
-        <argument key="App\Controller\Example1:acceptFriend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:allUser" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:chat_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:contacts" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:createNewGroup" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:delteUser" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:denyFriend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:friend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:index" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:main" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:profile" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:register" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:request_friend" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:send" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:sendFriendship" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:send_message_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:send_message_newMessage_AJAX" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:uploadProfile" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example1:upload_files" type="service" id=".service_locator.AtFHPRi"/>
-        <argument key="App\Controller\Example2:registerU" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\UserRegister::registerU" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:acceptFriend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:allUser" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:chat_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:contacts" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:createNewGroup" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:delteUser" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:denyFriend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:friend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:index" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:main" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:profile" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:register" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:request_friend" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:send" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:sendFriendship" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:send_message_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:send_message_newMessage_AJAX" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:uploadProfile" type="service" id=".service_locator.AtFHPRi"/>
+        <argument key="App\Controller\ChatMain:upload_files" type="service" id=".service_locator.AtFHPRi"/>
         <argument key="App\Controller\SecurityController:login" type="service" id=".service_locator.q6jLs_L"/>
+        <argument key="App\Controller\UserRegister:registerU" type="service" id=".service_locator.AtFHPRi"/>
       </argument>
     </service>
     <service id=".service_locator.Y7gDuDN" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
@@ -5189,21 +5189,21 @@
         <argument key="twig" type="service" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Example1" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Example1"/>
-      <argument>App\Controller\Example1</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.pNNo5z3" method="withContext"/>
-    </service>
-    <service id=".service_locator.pNNo5z3.App\Controller\Example2" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
-      <tag name="container.service_locator_context" id="App\Controller\Example2"/>
-      <argument>App\Controller\Example2</argument>
+    <service id=".service_locator.pNNo5z3.App\Controller\ChatMain" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\ChatMain"/>
+      <argument>App\Controller\ChatMain</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
     <service id=".service_locator.pNNo5z3.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.pNNo5z3" method="withContext"/>
+    </service>
+    <service id=".service_locator.pNNo5z3.App\Controller\UserRegister" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+      <tag name="container.service_locator_context" id="App\Controller\UserRegister"/>
+      <argument>App\Controller\UserRegister</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.pNNo5z3" method="withContext"/>
     </service>
@@ -5346,12 +5346,12 @@
       <argument type="service" id="security.token_storage"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver" public="false">
-      <argument type="service" id=".service_locator.6Nv7A64"/>
+      <argument type="service" id=".service_locator.skA5NOC"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver" public="false"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver" public="false"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver" public="false">
-      <argument type="service" id=".service_locator.6Nv7A64"/>
+      <argument type="service" id=".service_locator.skA5NOC"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface" public="false">
       <argument type="collection"/>
@@ -5721,7 +5721,7 @@
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker" public="false"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.CmORmuK" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem" public="false"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.6Nv7A64"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.skA5NOC"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
