@@ -3688,3 +3688,8 @@ bb4807,::1,POST,http://localhost:8000/chat_AJAX,1614187337,,200
 ee975e,::1,POST,http://localhost:8000/contacts,1614187344,,200
 98d28e,::1,POST,http://localhost:8000/allUser,1614187346,,200
 56d2d2,::1,POST,http://localhost:8000/contacts,1614187349,,200
+327578,::1,GET,http://localhost:8000/index,1614188041,,200
+d6f995,::1,POST,http://localhost:8000/main,1614188043,,200
+dcdf79,::1,POST,http://localhost:8000/profile,1614188047,,200
+6c610c,::1,POST,http://localhost:8000/allUser,1614188049,,200
+7a6283,::1,POST,http://localhost:8000/profFriend,1614188052,,200
