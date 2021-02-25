@@ -1,6 +1,7 @@
 <?php
 
-namespace ContainerLuZWaco;
+namespace ContainerWZbQk8z;
+
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -38,9 +39,9 @@ class App_KernelDevDebugContainer extends Container
             'kernel' => true,
         ];
         $this->methodMap = [
-            'App\\Controller\\Example1' => 'getExample1Service',
-            'App\\Controller\\Example2' => 'getExample2Service',
+            'App\\Controller\\ChatMain' => 'getChatMainService',
             'App\\Controller\\SecurityController' => 'getSecurityControllerService',
+            'App\\Controller\\UserRegister' => 'getUserRegisterService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\RedirectController' => 'getRedirectControllerService',
             'Symfony\\Bundle\\FrameworkBundle\\Controller\\TemplateController' => 'getTemplateControllerService',
             'cache.app' => 'getCache_AppService',
@@ -411,35 +412,18 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the public 'App\Controller\Example1' shared autowired service.
+     * Gets the public 'App\Controller\ChatMain' shared autowired service.
      *
-     * @return \App\Controller\Example1
+     * @return \App\Controller\ChatMain
      */
-    protected function getExample1Service()
+    protected function getChatMainService()
     {
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
-        include_once \dirname(__DIR__, 4).'\\src\\Controller\\Example1.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Controller\\ChatMain.php';
 
-        $this->services['App\\Controller\\Example1'] = $instance = new \App\Controller\Example1();
+        $this->services['App\\Controller\\ChatMain'] = $instance = new \App\Controller\ChatMain();
 
-        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\Example1', $this));
-
-        return $instance;
-    }
-
-    /**
-     * Gets the public 'App\Controller\Example2' shared autowired service.
-     *
-     * @return \App\Controller\Example2
-     */
-    protected function getExample2Service()
-    {
-        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
-        include_once \dirname(__DIR__, 4).'\\src\\Controller\\Example2.php';
-
-        $this->services['App\\Controller\\Example2'] = $instance = new \App\Controller\Example2();
-
-        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\Example2', $this));
+        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\ChatMain', $this));
 
         return $instance;
     }
@@ -457,6 +441,23 @@ class App_KernelDevDebugContainer extends Container
         $this->services['App\\Controller\\SecurityController'] = $instance = new \App\Controller\SecurityController();
 
         $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\SecurityController', $this));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the public 'App\Controller\UserRegister' shared autowired service.
+     *
+     * @return \App\Controller\UserRegister
+     */
+    protected function getUserRegisterService()
+    {
+        include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\framework-bundle\\Controller\\AbstractController.php';
+        include_once \dirname(__DIR__, 4).'\\src\\Controller\\UserRegister.php';
+
+        $this->services['App\\Controller\\UserRegister'] = $instance = new \App\Controller\UserRegister();
+
+        $instance->setContainer(($this->privates['.service_locator.pNNo5z3'] ?? $this->get_ServiceLocator_PNNo5z3Service())->withContext('App\\Controller\\UserRegister', $this));
 
         return $instance;
     }
@@ -492,7 +493,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AppService()
     {
-        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('8vFXivJ22+', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
+        $a = new \Symfony\Component\Cache\Adapter\FilesystemAdapter('39CcUVodYj', 0, ($this->targetDir.''.'/pools'), new \Symfony\Component\Cache\Marshaller\DefaultMarshaller(NULL));
         $a->setLogger(($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService()));
 
         return $this->services['cache.app'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter($a);
@@ -561,7 +562,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SystemService()
     {
-        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('-bSJE+8Jhr', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->services['cache.system'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('TSHBEqubXb', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1676,102 +1677,6 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
-     * Gets the private '.service_locator.6Nv7A64' shared service.
-     *
-     * @return \Symfony\Component\DependencyInjection\ServiceLocator
-     */
-    protected function get_ServiceLocator_6Nv7A64Service()
-    {
-        return $this->privates['.service_locator.6Nv7A64'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
-            'App\\Controller\\Example1::acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::contacts' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::createNewGroup' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::delteUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::denyFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::profile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::register' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::request_friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::send' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::sendFriendship' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::send_message_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1::upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example2::registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
-            'App\\Controller\\Example1:acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:contacts' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:createNewGroup' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:delteUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:denyFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:profile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:register' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:request_friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:send' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:sendFriendship' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:send_message_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example1:upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\Example2:registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
-            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
-        ], [
-            'App\\Controller\\Example1::acceptFriend' => '?',
-            'App\\Controller\\Example1::allUser' => '?',
-            'App\\Controller\\Example1::chat_AJAX' => '?',
-            'App\\Controller\\Example1::contacts' => '?',
-            'App\\Controller\\Example1::createNewGroup' => '?',
-            'App\\Controller\\Example1::delteUser' => '?',
-            'App\\Controller\\Example1::denyFriend' => '?',
-            'App\\Controller\\Example1::friend' => '?',
-            'App\\Controller\\Example1::index' => '?',
-            'App\\Controller\\Example1::main' => '?',
-            'App\\Controller\\Example1::profile' => '?',
-            'App\\Controller\\Example1::register' => '?',
-            'App\\Controller\\Example1::request_friend' => '?',
-            'App\\Controller\\Example1::send' => '?',
-            'App\\Controller\\Example1::sendFriendship' => '?',
-            'App\\Controller\\Example1::send_message_AJAX' => '?',
-            'App\\Controller\\Example1::send_message_newMessage_AJAX' => '?',
-            'App\\Controller\\Example1::uploadProfile' => '?',
-            'App\\Controller\\Example1::upload_files' => '?',
-            'App\\Controller\\Example2::registerU' => '?',
-            'App\\Controller\\SecurityController::login' => '?',
-            'App\\Controller\\Example1:acceptFriend' => '?',
-            'App\\Controller\\Example1:allUser' => '?',
-            'App\\Controller\\Example1:chat_AJAX' => '?',
-            'App\\Controller\\Example1:contacts' => '?',
-            'App\\Controller\\Example1:createNewGroup' => '?',
-            'App\\Controller\\Example1:delteUser' => '?',
-            'App\\Controller\\Example1:denyFriend' => '?',
-            'App\\Controller\\Example1:friend' => '?',
-            'App\\Controller\\Example1:index' => '?',
-            'App\\Controller\\Example1:main' => '?',
-            'App\\Controller\\Example1:profile' => '?',
-            'App\\Controller\\Example1:register' => '?',
-            'App\\Controller\\Example1:request_friend' => '?',
-            'App\\Controller\\Example1:send' => '?',
-            'App\\Controller\\Example1:sendFriendship' => '?',
-            'App\\Controller\\Example1:send_message_AJAX' => '?',
-            'App\\Controller\\Example1:send_message_newMessage_AJAX' => '?',
-            'App\\Controller\\Example1:uploadProfile' => '?',
-            'App\\Controller\\Example1:upload_files' => '?',
-            'App\\Controller\\Example2:registerU' => '?',
-            'App\\Controller\\SecurityController:login' => '?',
-        ]);
-    }
-
-    /**
      * Gets the private '.service_locator.AtFHPRi' shared service.
      *
      * @return \Symfony\Component\DependencyInjection\ServiceLocator
@@ -1836,6 +1741,102 @@ class App_KernelDevDebugContainer extends Container
     }
 
     /**
+     * Gets the private '.service_locator.skA5NOC' shared service.
+     *
+     * @return \Symfony\Component\DependencyInjection\ServiceLocator
+     */
+    protected function get_ServiceLocator_SkA5NOCService()
+    {
+        return $this->privates['.service_locator.skA5NOC'] = new \Symfony\Component\DependencyInjection\Argument\ServiceLocator($this->getService, [
+            'App\\Controller\\ChatMain::acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::contacts' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::createNewGroup' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::delteUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::denyFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::profile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::register' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::request_friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::send' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::sendFriendship' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::send_message_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain::upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\SecurityController::login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
+            'App\\Controller\\UserRegister::registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:acceptFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:allUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:chat_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:contacts' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:createNewGroup' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:delteUser' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:denyFriend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:index' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:main' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:profile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:register' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:request_friend' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:send' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:sendFriendship' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:send_message_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:send_message_newMessage_AJAX' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:uploadProfile' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\ChatMain:upload_files' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+            'App\\Controller\\SecurityController:login' => ['privates', '.service_locator.q6jLs_L', 'get_ServiceLocator_Q6jLsLService', false],
+            'App\\Controller\\UserRegister:registerU' => ['privates', '.service_locator.AtFHPRi', 'get_ServiceLocator_AtFHPRiService', false],
+        ], [
+            'App\\Controller\\ChatMain::acceptFriend' => '?',
+            'App\\Controller\\ChatMain::allUser' => '?',
+            'App\\Controller\\ChatMain::chat_AJAX' => '?',
+            'App\\Controller\\ChatMain::contacts' => '?',
+            'App\\Controller\\ChatMain::createNewGroup' => '?',
+            'App\\Controller\\ChatMain::delteUser' => '?',
+            'App\\Controller\\ChatMain::denyFriend' => '?',
+            'App\\Controller\\ChatMain::friend' => '?',
+            'App\\Controller\\ChatMain::index' => '?',
+            'App\\Controller\\ChatMain::main' => '?',
+            'App\\Controller\\ChatMain::profile' => '?',
+            'App\\Controller\\ChatMain::register' => '?',
+            'App\\Controller\\ChatMain::request_friend' => '?',
+            'App\\Controller\\ChatMain::send' => '?',
+            'App\\Controller\\ChatMain::sendFriendship' => '?',
+            'App\\Controller\\ChatMain::send_message_AJAX' => '?',
+            'App\\Controller\\ChatMain::send_message_newMessage_AJAX' => '?',
+            'App\\Controller\\ChatMain::uploadProfile' => '?',
+            'App\\Controller\\ChatMain::upload_files' => '?',
+            'App\\Controller\\SecurityController::login' => '?',
+            'App\\Controller\\UserRegister::registerU' => '?',
+            'App\\Controller\\ChatMain:acceptFriend' => '?',
+            'App\\Controller\\ChatMain:allUser' => '?',
+            'App\\Controller\\ChatMain:chat_AJAX' => '?',
+            'App\\Controller\\ChatMain:contacts' => '?',
+            'App\\Controller\\ChatMain:createNewGroup' => '?',
+            'App\\Controller\\ChatMain:delteUser' => '?',
+            'App\\Controller\\ChatMain:denyFriend' => '?',
+            'App\\Controller\\ChatMain:friend' => '?',
+            'App\\Controller\\ChatMain:index' => '?',
+            'App\\Controller\\ChatMain:main' => '?',
+            'App\\Controller\\ChatMain:profile' => '?',
+            'App\\Controller\\ChatMain:register' => '?',
+            'App\\Controller\\ChatMain:request_friend' => '?',
+            'App\\Controller\\ChatMain:send' => '?',
+            'App\\Controller\\ChatMain:sendFriendship' => '?',
+            'App\\Controller\\ChatMain:send_message_AJAX' => '?',
+            'App\\Controller\\ChatMain:send_message_newMessage_AJAX' => '?',
+            'App\\Controller\\ChatMain:uploadProfile' => '?',
+            'App\\Controller\\ChatMain:upload_files' => '?',
+            'App\\Controller\\SecurityController:login' => '?',
+            'App\\Controller\\UserRegister:registerU' => '?',
+        ]);
+    }
+
+    /**
      * Gets the private 'annotations.cache' shared service.
      *
      * @return \Symfony\Component\Cache\DoctrineProvider
@@ -1896,7 +1897,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_AnnotationsService()
     {
-        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('pLT59uozX5', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.annotations'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('q8IULaDI14', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1906,7 +1907,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_PropertyInfoService()
     {
-        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('fmE5nbvaPI', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.property_info'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ylLSR5uwrh', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1916,7 +1917,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SecurityExpressionLanguageService()
     {
-        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ldoPU5-8gC', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.security_expression_language'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('Hg78ENGA0V', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1926,7 +1927,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_SerializerService()
     {
-        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('ZOtTpBquYq', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.serializer'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('rRvCZH6-SU', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -1936,7 +1937,7 @@ class App_KernelDevDebugContainer extends Container
      */
     protected function getCache_ValidatorService()
     {
-        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('evcTL4sQnv', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
+        return $this->privates['cache.validator'] = new \Symfony\Component\Cache\Adapter\TraceableAdapter(\Symfony\Component\Cache\Adapter\AbstractAdapter::createSystemCache('Ih5O9XG573', 0, $this->getParameter('container.build_id'), ($this->targetDir.''.'/pools'), ($this->privates['monolog.logger.cache'] ?? $this->getMonolog_Logger_CacheService())));
     }
 
     /**
@@ -2549,7 +2550,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\NotTaggedControllerValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.6Nv7A64'] ?? $this->get_ServiceLocator_6Nv7A64Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.not_tagged_controller'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver(($this->privates['.service_locator.skA5NOC'] ?? $this->get_ServiceLocator_SkA5NOCService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -2591,7 +2592,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\TraceableValueResolver.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\http-kernel\\Controller\\ArgumentResolver\\ServiceValueResolver.php';
 
-        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.6Nv7A64'] ?? $this->get_ServiceLocator_6Nv7A64Service())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
+        return $this->privates['debug.argument_resolver.service'] = new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\TraceableValueResolver(new \Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver(($this->privates['.service_locator.skA5NOC'] ?? $this->get_ServiceLocator_SkA5NOCService())), ($this->privates['debug.stopwatch'] ?? ($this->privates['debug.stopwatch'] = new \Symfony\Component\Stopwatch\Stopwatch(true))));
     }
 
     /**
@@ -4501,7 +4502,7 @@ class App_KernelDevDebugContainer extends Container
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-core\\Encoder\\EncoderFactoryInterface.php';
         include_once \dirname(__DIR__, 4).'\\vendor\\symfony\\security-core\\Encoder\\EncoderFactory.php';
 
-        return $this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(['App\\Entity\\User' => ['class' => 'Symfony\\Component\\Security\\Core\\Encoder\\NativePasswordEncoder', 'arguments' => [0 => NULL, 1 => NULL, 2 => NULL, 3 => '2y']]]);
+        return $this->privates['security.encoder_factory.generic'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(['App\\Entity\\User' => ['class' => 'Symfony\\Component\\Security\\Core\\Encoder\\NativePasswordEncoder', 'arguments' => [0 => NULL, 1 => NULL, 2 => NULL, 3 => 1]]]);
     }
 
     /**
